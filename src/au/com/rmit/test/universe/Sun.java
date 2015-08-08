@@ -8,9 +8,9 @@ package au.com.rmit.test.universe;
 import au.com.rmit.Game2dEngine.action.AlphaToAction;
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.physicengine.WallSprite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Math.abs;
@@ -73,12 +73,12 @@ public class Sun extends Star implements ActionListener
             }
         }
     }
-    
+
     @Override
     public void onCollideWith(Sprite target)
     {
         super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
-        
+
         System.out.println("Collide...");
         if (target instanceof WallSprite)
         {
@@ -96,10 +96,10 @@ public class Sun extends Star implements ActionListener
             {
                 this.setVelocityY(-this.getVelocityY());
             }
-        }else
+        } else
             this.processCollision(target);
     }
-    
+
     public void processCollision(Sprite target)
     {
         Vector AB = new Vector(target.getCentreX() - this.getCentreX(), target.getCentreY() - this.getCentreY());
@@ -141,15 +141,15 @@ public class Sun extends Star implements ActionListener
 
         this.setVelocityX(RESULT_V_A.x);
         this.setVelocityY(RESULT_V_A.y);
-        
+
         Vector RESULT_V_B_AB = UNIT_AB.multiplyNumber(resultAbsV_B_AB);
         Vector V_B_BC = V_B.getProjectVectorOn(UNIT_BC);
         Vector RESULT_V_B = RESULT_V_B_AB.addVector(V_B_BC);
 
         target.setVelocityX(RESULT_V_B.x);
         target.setVelocityY(RESULT_V_B.y);
-        
+
         this.setTargetCollisionProcessed(true);
     }
-    
+
 }

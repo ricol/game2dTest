@@ -7,9 +7,11 @@ package au.com.rmit.test.physicengine;
 
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 
 /**
  *
@@ -26,7 +28,7 @@ public class CircleSprite extends Sprite
 
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
-        this.bDrawShape = true;
+//        this.bDrawShape = true;
 //        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
     }
 
@@ -35,16 +37,16 @@ public class CircleSprite extends Sprite
     {
         super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
 
-//        AffineTransform old = theGraphics2D.getTransform();
-//
-//        //rotate the angle
-//        theGraphics2D.rotate(this.getAngle(), this.getWidth() / 2.0f, this.getHeight() / 2.0f);
-//        theGraphics2D.setColor(this.getColor());
-//        theGraphics2D.drawLine(0, (int)(this.getHeight() / 2.0f), (int)this.getWidth() - 1, (int)(this.getHeight() / 2.0f));
-//        theGraphics2D.drawLine((int)(this.getWidth() / 2.0f), 0, (int)(this.getWidth() / 2.0f), (int)this.getHeight() - 1);
-//        theGraphics2D.drawArc(0, 0, (int)this.getWidth() - 1, (int)this.getHeight() - 1, 0, 360);
-//        
-//        theGraphics2D.setTransform(old);
+        AffineTransform old = theGraphics2D.getTransform();
+
+        //rotate the angle
+        theGraphics2D.rotate(this.getAngle(), this.getWidth() / 2.0f, this.getHeight() / 2.0f);
+        theGraphics2D.setColor(this.getColor());
+        theGraphics2D.drawLine(0, (int)(this.getHeight() / 2.0f), (int)this.getWidth() - 1, (int)(this.getHeight() / 2.0f));
+        theGraphics2D.drawLine((int)(this.getWidth() / 2.0f), 0, (int)(this.getWidth() / 2.0f), (int)this.getHeight() - 1);
+        theGraphics2D.drawArc(0, 0, (int)this.getWidth() - 1, (int)this.getHeight() - 1, 0, 360);
+        
+        theGraphics2D.setTransform(old);
     }
 
     @Override

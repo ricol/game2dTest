@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.universe;
 
-import au.com.rmit.Game2dEngine.gravity.Gravity;
+import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import java.awt.Color;

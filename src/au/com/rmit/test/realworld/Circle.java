@@ -9,7 +9,7 @@ import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
-import au.com.rmit.test.physicengine.WallSprite;
+import au.com.rmit.test.sprites.Wall;
 import java.awt.Graphics2D;
 import static java.lang.Math.abs;
 
@@ -43,23 +43,23 @@ public class Circle extends Sprite
     @Override
     public void onCollideWith(Sprite target)
     {
-        if (target instanceof WallSprite)
+        if (target instanceof Wall)
         {
             Vector V1 = new Vector(this.getVelocityX(), this.getVelocityY());
             V1.print("BEFORE V");
             System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
             
-            WallSprite aWall = (WallSprite) target;
-            if (aWall.wallType == WallSprite.WALLTYPE.LEFT)
+            Wall aWall = (Wall) target;
+            if (aWall.wallType == Wall.WALLTYPE.LEFT)
             {
                 this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.RIGHT)
+            } else if (aWall.wallType == Wall.WALLTYPE.RIGHT)
             {
                 this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.TOP)
+            } else if (aWall.wallType == Wall.WALLTYPE.TOP)
             {
                 this.setVelocityY(-this.getVelocityY());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.BOTTOM)
+            } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
             {
                 this.restoreY();
                 this.setVelocityY(-this.getVelocityY());

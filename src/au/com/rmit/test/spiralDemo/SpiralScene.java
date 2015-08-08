@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.spiralDemo;
 
-import au.com.rmit.Game2dEngine.gravity.Gravity;
+import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.scene.Scene;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import java.awt.event.ActionEvent;
@@ -97,7 +97,7 @@ public class SpiralScene extends Scene
         {
             Sprite aObject;
 
-            aObject = new RectangleShape(x, y, 50, 50, 0, 0, 0);
+            aObject = new SpiralSquareShape(x, y, 50, 50, 0, 0, 0);
             aObject.setLifeTime(10);
             int redValue = abs(theRandom.nextInt()) % 255;
             int greenValue = abs(theRandom.nextInt()) % 255;
