@@ -1,7 +1,6 @@
 package au.com.rmit.test.gui;
 
 import au.com.rmit.Game2dEngine.director.Director;
-import au.com.rmit.test.ball.BallScene;
 import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
 import au.com.rmit.test.physicengine.TestScene;
@@ -53,7 +52,6 @@ public class FrameMain extends javax.swing.JFrame
         btnSpiral = new javax.swing.JButton();
         btnFireworks = new javax.swing.JButton();
         btnTest = new javax.swing.JButton();
-        btnBall = new javax.swing.JButton();
         btnRealWorld = new javax.swing.JButton();
         btnGravity = new javax.swing.JButton();
 
@@ -133,15 +131,6 @@ public class FrameMain extends javax.swing.JFrame
             }
         });
 
-        btnBall.setText("Ball");
-        btnBall.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                btnBallActionPerformed(evt);
-            }
-        });
-
         btnRealWorld.setText("Real World");
         btnRealWorld.addActionListener(new java.awt.event.ActionListener()
         {
@@ -169,12 +158,10 @@ public class FrameMain extends javax.swing.JFrame
                 .addComponent(btnPause)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStop)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(btnGravity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRealWorld)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBall)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTest)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -199,7 +186,6 @@ public class FrameMain extends javax.swing.JFrame
                     .addComponent(btnSpiral)
                     .addComponent(btnFireworks)
                     .addComponent(btnTest)
-                    .addComponent(btnBall)
                     .addComponent(btnRealWorld)
                     .addComponent(btnGravity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -257,12 +243,6 @@ public class FrameMain extends javax.swing.JFrame
         Director.getSharedInstance().showScene(new TestScene());
     }//GEN-LAST:event_btnTestActionPerformed
 
-    private void btnBallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBallActionPerformed
-    {//GEN-HEADEREND:event_btnBallActionPerformed
-        // TODO add your handling code here:
-        Director.getSharedInstance().showScene(new BallScene());
-    }//GEN-LAST:event_btnBallActionPerformed
-
     private void btnRealWorldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRealWorldActionPerformed
     {//GEN-HEADEREND:event_btnRealWorldActionPerformed
         // TODO add your handling code here:
@@ -276,7 +256,6 @@ public class FrameMain extends javax.swing.JFrame
     }//GEN-LAST:event_btnGravityActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBall;
     private javax.swing.JButton btnFireworks;
     private javax.swing.JButton btnFountain;
     private javax.swing.JButton btnGravity;

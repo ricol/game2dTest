@@ -56,8 +56,8 @@ public class BigFirework extends Firework
                 if (abs(theRandom.nextInt() % 10) > 8)
                 {
                     aObject = new BigFirework();
-                    aObject.setX(x);
-                    aObject.setY(y);
+                    aObject.setX(this.getX());
+                    aObject.setY(this.getY());
                     aObject.setVelocityX(tmpVelocityX);
                     aObject.setVelocityY(tmpVelocityY);
                     aObject.setLifeTime(1);
@@ -66,8 +66,8 @@ public class BigFirework extends Firework
                 } else
                 {
                     aObject = new SmallFirework();
-                    aObject.setX(x);
-                    aObject.setY(y);
+                    aObject.setX(this.getX());
+                    aObject.setY(this.getY());
                     aObject.setVelocityX(tmpVelocityX);
                     aObject.setVelocityY(tmpVelocityY);
                     aObject.setLifeTime(abs(theRandom.nextInt()) % 5 + 1);

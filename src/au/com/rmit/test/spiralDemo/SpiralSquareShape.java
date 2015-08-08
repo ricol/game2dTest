@@ -12,10 +12,10 @@ import java.awt.Graphics2D;
  *
  * @author ricolwang
  */
-public class RectangleShape extends Sprite
+public class SpiralSquareShape extends Sprite
 {
 
-    public RectangleShape(double x, double y, double width, double height, double mass, double velocityX, double velocityY)
+    public SpiralSquareShape(double x, double y, double width, double height, double mass, double velocityX, double velocityY)
     {
         super(x, y, width, height, mass, velocityX, velocityY);
         
