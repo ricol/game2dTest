@@ -5,9 +5,10 @@
  */
 package au.com.rmit.test.universe;
 
-import au.com.rmit.Game2dEngine.gravity.Gravity;
+import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +27,9 @@ public class Entity extends Sprite
         super(0, 0, 0, 0, 0, 0, 0);
 
         this.bCustomDrawing = true;
+        
+        this.theColorOfTheShape = Color.green;
+//        this.bDrawShape = true;
     }
 
     @Override

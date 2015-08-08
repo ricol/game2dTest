@@ -7,11 +7,11 @@ package au.com.rmit.test.physicengine;
 
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import static java.lang.Math.abs;
 
 /**
  *
@@ -28,6 +28,7 @@ public class CircleSprite extends Sprite
 
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
+//        this.bDrawShape = true;
 //        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
     }
 
@@ -79,15 +80,6 @@ public class CircleSprite extends Sprite
             this.processCollision(target);
     }
 
-    @Override
-    public boolean collideWith(Sprite target)
-    {
-        if (target instanceof WallSprite)
-            return super.rectangleOverlaps(target);
-        else
-            return super.circleOverlaps(target);
-    }
-
     public void processCollision(Sprite target)
     {
         Vector AB = new Vector(target.getCentreX() - this.getCentreX(), target.getCentreY() - this.getCentreY());
@@ -130,7 +122,7 @@ public class CircleSprite extends Sprite
         this.setVelocityX(RESULT_V_A.x);
         this.setVelocityY(RESULT_V_A.y);
         
-        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
+//        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         Vector RESULT_V_B_AB = UNIT_AB.multiplyNumber(resultAbsV_B_AB);
         Vector V_B_BC = V_B.getProjectVectorOn(UNIT_BC);
@@ -139,7 +131,7 @@ public class CircleSprite extends Sprite
         target.setVelocityX(RESULT_V_B.x);
         target.setVelocityY(RESULT_V_B.y);
         
-        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
+//        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         this.setTargetCollisionProcessed(true);
     }
