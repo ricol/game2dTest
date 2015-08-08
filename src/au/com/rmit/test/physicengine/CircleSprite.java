@@ -10,8 +10,6 @@ import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
-import static java.lang.Math.abs;
 
 /**
  *
@@ -28,6 +26,7 @@ public class CircleSprite extends Sprite
 
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
+        this.bDrawShape = true;
 //        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
     }
 
@@ -36,16 +35,16 @@ public class CircleSprite extends Sprite
     {
         super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
 
-        AffineTransform old = theGraphics2D.getTransform();
-
-        //rotate the angle
-        theGraphics2D.rotate(this.getAngle(), this.getWidth() / 2.0f, this.getHeight() / 2.0f);
-        theGraphics2D.setColor(this.getColor());
-        theGraphics2D.drawLine(0, (int)(this.getHeight() / 2.0f), (int)this.getWidth() - 1, (int)(this.getHeight() / 2.0f));
-        theGraphics2D.drawLine((int)(this.getWidth() / 2.0f), 0, (int)(this.getWidth() / 2.0f), (int)this.getHeight() - 1);
-        theGraphics2D.drawArc(0, 0, (int)this.getWidth() - 1, (int)this.getHeight() - 1, 0, 360);
-        
-        theGraphics2D.setTransform(old);
+//        AffineTransform old = theGraphics2D.getTransform();
+//
+//        //rotate the angle
+//        theGraphics2D.rotate(this.getAngle(), this.getWidth() / 2.0f, this.getHeight() / 2.0f);
+//        theGraphics2D.setColor(this.getColor());
+//        theGraphics2D.drawLine(0, (int)(this.getHeight() / 2.0f), (int)this.getWidth() - 1, (int)(this.getHeight() / 2.0f));
+//        theGraphics2D.drawLine((int)(this.getWidth() / 2.0f), 0, (int)(this.getWidth() / 2.0f), (int)this.getHeight() - 1);
+//        theGraphics2D.drawArc(0, 0, (int)this.getWidth() - 1, (int)this.getHeight() - 1, 0, 360);
+//        
+//        theGraphics2D.setTransform(old);
     }
 
     @Override
@@ -77,15 +76,6 @@ public class CircleSprite extends Sprite
             System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
         } else
             this.processCollision(target);
-    }
-
-    @Override
-    public boolean collideWith(Sprite target)
-    {
-        if (target instanceof WallSprite)
-            return super.rectangleOverlaps(target);
-        else
-            return super.circleOverlaps(target);
     }
 
     public void processCollision(Sprite target)
@@ -130,7 +120,7 @@ public class CircleSprite extends Sprite
         this.setVelocityX(RESULT_V_A.x);
         this.setVelocityY(RESULT_V_A.y);
         
-        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
+//        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         Vector RESULT_V_B_AB = UNIT_AB.multiplyNumber(resultAbsV_B_AB);
         Vector V_B_BC = V_B.getProjectVectorOn(UNIT_BC);
@@ -139,7 +129,7 @@ public class CircleSprite extends Sprite
         target.setVelocityX(RESULT_V_B.x);
         target.setVelocityY(RESULT_V_B.y);
         
-        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
+//        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         this.setTargetCollisionProcessed(true);
     }

@@ -75,15 +75,6 @@ public class Sun extends Star implements ActionListener
     }
     
     @Override
-    public boolean collideWith(Sprite target)
-    {
-        if (target instanceof WallSprite)
-            return super.rectangleOverlaps(target);
-        else
-            return super.circleOverlaps(target);
-    }
-
-    @Override
     public void onCollideWith(Sprite target)
     {
         super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
@@ -151,8 +142,6 @@ public class Sun extends Star implements ActionListener
         this.setVelocityX(RESULT_V_A.x);
         this.setVelocityY(RESULT_V_A.y);
         
-        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
-
         Vector RESULT_V_B_AB = UNIT_AB.multiplyNumber(resultAbsV_B_AB);
         Vector V_B_BC = V_B.getProjectVectorOn(UNIT_BC);
         Vector RESULT_V_B = RESULT_V_B_AB.addVector(V_B_BC);
@@ -160,8 +149,6 @@ public class Sun extends Star implements ActionListener
         target.setVelocityX(RESULT_V_B.x);
         target.setVelocityY(RESULT_V_B.y);
         
-        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
-
         this.setTargetCollisionProcessed(true);
     }
     

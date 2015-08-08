@@ -5,9 +5,11 @@
  */
 package au.com.rmit.test.physicengine;
 
-import au.com.rmit.Game2dEngine.gravity.Gravity;
+import au.com.rmit.Game2dEngine.geometry.shape.CircleShape;
 import au.com.rmit.Game2dEngine.scene.Scene;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -20,18 +22,62 @@ import static java.lang.Math.abs;
 public class TestScene extends Scene
 {
 
-    boolean bFlag;
-    Gravity g = new Gravity(0, 0);
-    float delta = 0;
-    float GRAVITY_VALUE = 500;
-    boolean bAlreadyRun;
+    WallSprite theWallTop;
+    WallSprite theWallLeft;
+    WallSprite theWallBottom;
+    WallSprite theWallRight;
 
-    WallSprite theWall = new WallSprite(0, 0, 100, 100, 0, 0, 0);
+    int startX = 5, startY = 5;
+    int wallSize = 50;
+
+    void resizeWalls()
+    {
+        if (theWallTop != null)
+        {
+            theWallTop.setX(startX);
+            theWallTop.setY(startY);
+            theWallTop.setWidth(getWidth() - 2 * startX);
+            theWallTop.setHeight(wallSize);
+        }
+
+        if (theWallBottom != null)
+        {
+            theWallBottom.setX(startX);
+            theWallBottom.setY(getHeight() - wallSize - startX);
+            theWallBottom.setWidth(getWidth() - 2 * startX);
+            theWallBottom.setHeight(wallSize);
+        }
+
+        if (theWallLeft != null)
+        {
+            theWallLeft.setX(startX);
+            theWallLeft.setY(startY);
+            theWallLeft.setWidth(wallSize);
+            theWallLeft.setHeight(getHeight() - 2 * startY);
+        }
+
+        if (theWallRight != null)
+        {
+            theWallRight.setX(getWidth() - wallSize - startX);
+            theWallRight.setY(startY);
+            theWallRight.setWidth(wallSize);
+            theWallRight.setHeight(getHeight() - 2 * startY);
+        }
+    }
 
     public TestScene()
     {
         this.enableCollisionDetect();
-        
+
+        this.addComponentListener(new ComponentAdapter()
+        {
+            @Override
+            public void componentResized(ComponentEvent evt)
+            {
+                resizeWalls();
+            }
+        });
+
         this.addMouseMotionListener(new MouseMotionListener()
         {
 
@@ -43,8 +89,6 @@ public class TestScene extends Scene
             @Override
             public void mouseMoved(MouseEvent e)
             {
-                theWall.setCentreX(e.getX());
-                theWall.setCentreY(e.getY());
             }
         });
 
@@ -60,30 +104,40 @@ public class TestScene extends Scene
             @Override
             public void mousePressed(MouseEvent e)
             {
-                if (!bAlreadyRun)
+                if (theWallTop == null)
                 {
-                    bAlreadyRun = true;
-
-                    WallSprite aSprite = new WallSprite(0, 0, getWidth(), 5, 0, 0, 0);
-                    aSprite.setBlue(255);
-                    aSprite.wallType = WallSprite.WALLTYPE.TOP;
-                    addSprite(aSprite);
-
-                    aSprite = new WallSprite(0, getHeight() - 5, getWidth(), 5, 0, 0, 0);
-                    aSprite.setBlue(255);
-                    aSprite.wallType = WallSprite.WALLTYPE.BOTTOM;
-                    addSprite(aSprite);
-
-                    aSprite = new WallSprite(0, 0, 5, getHeight(), 0, 0, 0);
-                    aSprite.setBlue(255);
-                    aSprite.wallType = WallSprite.WALLTYPE.LEFT;
-                    addSprite(aSprite);
-
-                    aSprite = new WallSprite(getWidth() - 5, 0, 5, getHeight(), 0, 0, 0);
-                    aSprite.setBlue(255);
-                    aSprite.wallType = WallSprite.WALLTYPE.RIGHT;
-                    addSprite(aSprite);
+                    theWallTop = new WallSprite();
+                    theWallTop.setBlue(255);
+                    theWallTop.wallType = WallSprite.WALLTYPE.TOP;
+                    addSprite(theWallTop);
                 }
+
+                if (theWallBottom == null)
+                {
+
+                    theWallBottom = new WallSprite();
+                    theWallBottom.setBlue(255);
+                    theWallBottom.wallType = WallSprite.WALLTYPE.BOTTOM;
+                    addSprite(theWallBottom);
+                }
+
+                if (theWallLeft == null)
+                {
+                    theWallLeft = new WallSprite();
+                    theWallLeft.setBlue(255);
+                    theWallLeft.wallType = WallSprite.WALLTYPE.LEFT;
+                    addSprite(theWallLeft);
+                }
+
+                if (theWallRight == null)
+                {
+                    theWallRight = new WallSprite();
+                    theWallRight.setBlue(255);
+                    theWallRight.wallType = WallSprite.WALLTYPE.RIGHT;
+                    addSprite(theWallRight);
+                }
+                
+                resizeWalls();
 
                 float maxmass = 1000;
                 float size = 100;
@@ -104,6 +158,8 @@ public class TestScene extends Scene
                     aCircle.setWidth((aCircle.getMass() / maxmass) * size);
                     aCircle.setHeight(aCircle.getWidth());
 
+                    aCircle.setTheShape(new CircleShape(aCircle.getCentreX(), aCircle.getCentreY(), aCircle.getWidth() > aCircle.getHeight() ? aCircle.getWidth() / 2.0f : aCircle.getHeight() / 2.0f));
+
                     addSprite(aCircle);
 
                 } else if (e.getButton() == MouseEvent.BUTTON1)
@@ -121,6 +177,8 @@ public class TestScene extends Scene
                     aCircle.setVelocityY(abs(theRandom.nextInt()) % 200 + 200);
                     aCircle.setWidth((aCircle.getMass() / maxmass) * size);
                     aCircle.setHeight(aCircle.getWidth());
+
+                    aCircle.setTheShape(new CircleShape(aCircle.getCentreX(), aCircle.getCentreY(), aCircle.getWidth() > aCircle.getHeight() ? aCircle.getWidth() / 2.0f : aCircle.getHeight() / 2.0f));
 
                     addSprite(aCircle);
                 }

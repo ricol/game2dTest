@@ -80,8 +80,12 @@ public class GravityDemoScene extends Scene
                     aSun.setCentreX(e.getX());
                     aSun.setCentreY(e.getY());
                     aSun.setLayer(1);
-//                    aSun.setVelocityX(abs(theRandom.nextInt()) % 10 + 20);
-//                    aSun.setVelocityY(abs(theRandom.nextInt()) % 10 + 20);
+//                    aSun.setVelocityX(abs(theRandom.nextInt()) % 50 + 100);
+//                    if (theRandom.nextBoolean())
+//                        aSun.setVelocityX(-1 * aSun.getVelocityX());
+//                    aSun.setVelocityY(abs(theRandom.nextInt()) % 50 + 100);
+//                    if (theRandom.nextBoolean())
+//                        aSun.setVelocityY(-1 * aSun.getVelocityY());
                     addSprite(aSun);
                     
                     Set<Entity> all = getAllEntities();

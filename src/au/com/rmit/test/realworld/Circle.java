@@ -78,15 +78,6 @@ public class Circle extends Sprite
             this.processCollision(target);
     }
 
-    @Override
-    public boolean collideWith(Sprite target)
-    {
-        if (target instanceof WallSprite)
-            return super.rectangleOverlaps(target);
-        else
-            return super.circleOverlaps(target);
-    }
-
     public void processCollision(Sprite target)
     {
         Vector AB = new Vector(target.getCentreX() - this.getCentreX(), target.getCentreY() - this.getCentreY());

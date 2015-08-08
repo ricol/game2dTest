@@ -5,6 +5,7 @@
  */
 package au.com.rmit.test.physicengine;
 
+import au.com.rmit.Game2dEngine.geometry.shape.RectangleShape;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 
@@ -15,11 +16,17 @@ import au.com.rmit.test.gui.TestCommon;
 public class WallSprite extends Sprite
 {
 
+    WallSprite()
+    {
+        this(0, 0, 0, 0, 0, 0, 0);
+    }
+
     public static enum WALLTYPE
     {
 
         LEFT, RIGHT, TOP, BOTTOM
     };
+
     public WALLTYPE wallType = WALLTYPE.LEFT;
 
     public WallSprite(double x, double y, double width, double height, double mass, double velocityX, double velocityY)
@@ -27,7 +34,12 @@ public class WallSprite extends Sprite
         super(x, y, width, height, mass, velocityX, velocityY);
 
         this.bCollisionDetect = true;
+        this.bCustomDrawing = true;
+        this.bDrawShape = true;
         this.setCollisionCategory(TestCommon.CATEGORY_WALL);
+
+        RectangleShape theRectangleShape = new RectangleShape(x, y, width, height);
+        this.setTheShape(theRectangleShape);
     }
 
 }
