@@ -5,6 +5,7 @@ import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
 import au.com.rmit.test.physicengine.TestScene;
 import au.com.rmit.test.realworld.RealWorldScene;
+import au.com.rmit.test.solarsystem.SolarScene;
 import au.com.rmit.test.spiralDemo.SpiralScene;
 import au.com.rmit.test.universe.GravityDemoScene;
 import java.awt.Dimension;
@@ -54,6 +55,7 @@ public class FrameMain extends javax.swing.JFrame
         btnTest = new javax.swing.JButton();
         btnRealWorld = new javax.swing.JButton();
         btnGravity = new javax.swing.JButton();
+        btnSolarSystem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -149,6 +151,15 @@ public class FrameMain extends javax.swing.JFrame
             }
         });
 
+        btnSolarSystem.setText("Solar System");
+        btnSolarSystem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSolarSystemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +169,9 @@ public class FrameMain extends javax.swing.JFrame
                 .addComponent(btnPause)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStop)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(btnSolarSystem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGravity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRealWorld)
@@ -187,7 +200,8 @@ public class FrameMain extends javax.swing.JFrame
                     .addComponent(btnFireworks)
                     .addComponent(btnTest)
                     .addComponent(btnRealWorld)
-                    .addComponent(btnGravity))
+                    .addComponent(btnGravity)
+                    .addComponent(btnSolarSystem))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -255,12 +269,19 @@ public class FrameMain extends javax.swing.JFrame
         Director.getSharedInstance().showScene(new GravityDemoScene());
     }//GEN-LAST:event_btnGravityActionPerformed
 
+    private void btnSolarSystemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSolarSystemActionPerformed
+    {//GEN-HEADEREND:event_btnSolarSystemActionPerformed
+        // TODO add your handling code here:
+        Director.getSharedInstance().showScene(new SolarScene());
+    }//GEN-LAST:event_btnSolarSystemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFireworks;
     private javax.swing.JButton btnFountain;
     private javax.swing.JButton btnGravity;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnRealWorld;
+    private javax.swing.JButton btnSolarSystem;
     private javax.swing.JButton btnSpiral;
     private javax.swing.JButton btnStop;
     private javax.swing.JButton btnTest;

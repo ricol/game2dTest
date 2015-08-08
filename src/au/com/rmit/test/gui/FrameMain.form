@@ -31,7 +31,9 @@
               <Component id="btnPause" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnStop" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <EmptySpace pref="99" max="32767" attributes="0"/>
+              <Component id="btnSolarSystem" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnGravity" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnRealWorld" min="-2" max="-2" attributes="0"/>
@@ -64,6 +66,7 @@
                   <Component id="btnTest" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRealWorld" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGravity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSolarSystem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelGame" max="32767" attributes="0"/>
@@ -155,6 +158,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGravityActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSolarSystem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Solar System"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSolarSystemActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
