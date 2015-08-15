@@ -14,4 +14,5 @@ public class TestCommon
 
     public static int CATEGORY_WALL = 1;
     public static int CATEGORY_CIRCLE = 2;
+    public static int CATEGORY_RECTANGLE = 3;
 }
