@@ -25,7 +25,7 @@ public class Circle extends Sprite
         this.bCollisionDetect = true;
         this.setCollisionCategory(TestCommon.CATEGORY_CIRCLE);
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
-        
+
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
         this.enableGravity();
@@ -48,7 +48,7 @@ public class Circle extends Sprite
             Vector V1 = new Vector(this.getVelocityX(), this.getVelocityY());
             V1.print("BEFORE V");
             System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
-            
+
             Wall aWall = (Wall) target;
             if (aWall.wallType == Wall.WALLTYPE.LEFT)
             {
@@ -61,21 +61,30 @@ public class Circle extends Sprite
                 this.setVelocityY(-this.getVelocityY());
             } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
             {
-                this.restoreY();
-                this.setVelocityY(-this.getVelocityY());
-            }
-            
-            Vector V2 = new Vector(this.getVelocityX(), this.getVelocityY());
-            V2.print("AFTER V");
-            System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
-            
-            if (abs(V2.y) <= 20 && abs(this.getY() + this.getHeight() - this.theScene.getHeight()) <= 5)
-            {
-                this.setVelocityY(0);
-                this.applyGravity(null);
+                double v = this.getVelocityY();
+                v -= 5;
+                this.setVelocityY(-v);
             }
         } else
             this.processCollision(target);
+    }
+
+    @Override
+    public void afterCollisionProcess(double currentTime)
+    {
+        super.afterCollisionProcess(currentTime); //To change body of generated methods, choose Tools | Templates.
+
+        Wall theBottomWall = ((RealWorldScene) this.theScene).theWallBottom;
+
+        this.enableGravity();
+
+        if (abs(this.getVelocityY()) <= 70 && distanceToWall((Wall) theBottomWall) <= 2)
+        {
+            this.setVelocityY(0);
+            this.disableGravity();
+        }
+
+        this.checkWall();
     }
 
     public void processCollision(Sprite target)
@@ -134,5 +143,31 @@ public class Circle extends Sprite
     public String toString()
     {
         return "Class: " + this.getClass() + "; identifier: " + this.identifier + "; velocityX: " + this.getVelocityX() + "; velocityY: " + this.getVelocityY();
+    }
+
+    void checkWall()
+    {
+        if (this.theScene == null) return;
+        
+        Wall theWall = ((RealWorldScene) this.theScene).theWallTop;
+        while (this.getY() < theWall.getY() + theWall.getHeight())
+            this.setY(this.getY() + 1);
+        
+        theWall = ((RealWorldScene) this.theScene).theWallBottom;
+        while (this.getY() + this.getHeight() > theWall.getY())
+            this.setY(this.getY() - 1);
+        
+        theWall = ((RealWorldScene) this.theScene).theWallLeft;
+        while (this.getX() < theWall.getX() + theWall.getWidth())
+            this.setX(this.getX() + 1);
+        
+        theWall = ((RealWorldScene) this.theScene).theWallRight;
+        while (this.getX() + this.getWidth() > theWall.getX())
+            this.setX(this.getX() - 1);
+    }
+
+    double distanceToWall(Wall theWall)
+    {
+        return abs(this.getCentreY() + this.getHeight() / 2 - theWall.getY());
     }
 }

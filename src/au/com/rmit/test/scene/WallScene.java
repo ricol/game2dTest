@@ -20,10 +20,10 @@ import java.awt.event.MouseListener;
 public class WallScene extends Scene implements MouseListener
 {
 
-    Wall theWallTop;
-    Wall theWallLeft;
-    Wall theWallBottom;
-    Wall theWallRight;
+    public Wall theWallTop;
+    public Wall theWallLeft;
+    public Wall theWallBottom;
+    public Wall theWallRight;
 
     int startX = 5, startY = 5;
     int wallSize = 50;
