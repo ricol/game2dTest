@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package au.com.rmit.test.physicengine;
+package au.com.rmit.test.realworld;
 
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
-import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
+import au.com.rmit.test.sprites.Wall;
 import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
+import static java.lang.Math.abs;
 
 /**
  *
  * @author ricolwang
  */
-public class CircleSprite extends Sprite
+public class ShapeSprite extends Sprite
 {
 
-    public CircleSprite()
+    public ShapeSprite()
     {
         this.bCollisionDetect = true;
         this.setCollisionCategory(TestCommon.CATEGORY_CIRCLE);
@@ -28,8 +28,7 @@ public class CircleSprite extends Sprite
 
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
-//        this.bDrawShape = true;
-//        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
+        this.enableGravity();
     }
 
     @Override
@@ -37,47 +36,53 @@ public class CircleSprite extends Sprite
     {
         super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
 
-        AffineTransform old = theGraphics2D.getTransform();
-
-        //rotate the angle
-        theGraphics2D.rotate(this.getAngle(), this.getWidth() / 2.0f, this.getHeight() / 2.0f);
-        theGraphics2D.setColor(this.getColor());
-        theGraphics2D.drawLine(0, (int)(this.getHeight() / 2.0f), (int)this.getWidth() - 1, (int)(this.getHeight() / 2.0f));
-        theGraphics2D.drawLine((int)(this.getWidth() / 2.0f), 0, (int)(this.getWidth() / 2.0f), (int)this.getHeight() - 1);
-        theGraphics2D.drawArc(0, 0, (int)this.getWidth() - 1, (int)this.getHeight() - 1, 0, 360);
-        
-        theGraphics2D.setTransform(old);
     }
 
     @Override
     public void onCollideWith(Sprite target)
     {
-        if (target instanceof WallSprite)
+        if (target instanceof Wall)
         {
             Vector V1 = new Vector(this.getVelocityX(), this.getVelocityY());
             V1.print("BEFORE V");
             System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
 
-            WallSprite aWall = (WallSprite) target;
-            if (aWall.wallType == WallSprite.WALLTYPE.LEFT)
+            Wall aWall = (Wall) target;
+            if (aWall.wallType == Wall.WALLTYPE.LEFT)
             {
                 this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.RIGHT)
+            } else if (aWall.wallType == Wall.WALLTYPE.RIGHT)
             {
                 this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.TOP)
+            } else if (aWall.wallType == Wall.WALLTYPE.TOP)
             {
                 this.setVelocityY(-this.getVelocityY());
-            } else if (aWall.wallType == WallSprite.WALLTYPE.BOTTOM)
+            } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
             {
-                this.setVelocityY(-this.getVelocityY());
+                double v = this.getVelocityY();
+                v -= 5;
+                this.setVelocityY(-v);
             }
-
-            Vector V2 = new Vector(this.getVelocityX(), this.getVelocityY());
-            V2.print("AFTER V");
-            System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
         } else
             this.processCollision(target);
+    }
+
+    @Override
+    public void afterCollisionProcess(double currentTime)
+    {
+        super.afterCollisionProcess(currentTime); //To change body of generated methods, choose Tools | Templates.
+
+        Wall theBottomWall = ((RealWorldScene) this.theScene).theWallBottom;
+
+        this.enableGravity();
+
+        if (abs(this.getVelocityY()) <= 70 && distanceToWall((Wall) theBottomWall) <= 2)
+        {
+            this.setVelocityY(0);
+            this.disableGravity();
+        }
+
+        this.checkWall();
     }
 
     public void processCollision(Sprite target)
@@ -121,8 +126,6 @@ public class CircleSprite extends Sprite
 
         this.setVelocityX(RESULT_V_A.x);
         this.setVelocityY(RESULT_V_A.y);
-        
-//        this.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         Vector RESULT_V_B_AB = UNIT_AB.multiplyNumber(resultAbsV_B_AB);
         Vector V_B_BC = V_B.getProjectVectorOn(UNIT_BC);
@@ -130,8 +133,6 @@ public class CircleSprite extends Sprite
 
         target.setVelocityX(RESULT_V_B.x);
         target.setVelocityY(RESULT_V_B.y);
-        
-//        target.setVelocityAngle(abs(theRandom.nextFloat()) * Math.PI * 2);
 
         this.setTargetCollisionProcessed(true);
     }
@@ -140,5 +141,32 @@ public class CircleSprite extends Sprite
     public String toString()
     {
         return "Class: " + this.getClass() + "; identifier: " + this.identifier + "; velocityX: " + this.getVelocityX() + "; velocityY: " + this.getVelocityY();
+    }
+
+    void checkWall()
+    {
+        if (this.theScene == null)
+            return;
+
+        Wall theWall = ((RealWorldScene) this.theScene).theWallTop;
+        while (this.getY() < theWall.getY() + theWall.getHeight())
+            this.setY(this.getY() + 1);
+
+        theWall = ((RealWorldScene) this.theScene).theWallBottom;
+        while (this.getY() + this.getHeight() > theWall.getY())
+            this.setY(this.getY() - 1);
+
+        theWall = ((RealWorldScene) this.theScene).theWallLeft;
+        while (this.getX() < theWall.getX() + theWall.getWidth())
+            this.setX(this.getX() + 1);
+
+        theWall = ((RealWorldScene) this.theScene).theWallRight;
+        while (this.getX() + this.getWidth() > theWall.getX())
+            this.setX(this.getX() - 1);
+    }
+
+    double distanceToWall(Wall theWall)
+    {
+        return abs(this.getCentreY() + this.getHeight() / 2 - theWall.getY());
     }
 }
