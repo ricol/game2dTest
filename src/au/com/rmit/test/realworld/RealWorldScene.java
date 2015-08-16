@@ -29,14 +29,13 @@ public class RealWorldScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            Sprite aCircle = new Circle();
+            Sprite aCircle = new Rectangle();
 
             aCircle.setBlue(255);
 
             aCircle.setCentreX(e.getX());
             aCircle.setCentreY(e.getY());
 
-//                    aCircle.setMass(abs(theRandom.nextInt()) % 900 + 100);
             aCircle.setMass(500);
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
             aCircle.setHeight(aCircle.getWidth());
@@ -53,7 +52,6 @@ public class RealWorldScene extends WallScene
             aCircle.setCentreX(e.getX());
             aCircle.setCentreY(e.getY());
 
-//                    aCircle.setMass(abs(theRandom.nextInt()) % 900 + 100);
             aCircle.setMass(1000);
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
             aCircle.setHeight(aCircle.getWidth());

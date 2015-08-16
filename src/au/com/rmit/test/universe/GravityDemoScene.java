@@ -22,7 +22,7 @@ import java.util.Set;
 public class GravityDemoScene extends WallScene
 {
 
-    double MassOfSun = 10.0f * pow(10, 17);
+    double MassOfStar = 10.0f * pow(10, 17);
 
     @Override
     public void mousePressed(MouseEvent e)
@@ -31,24 +31,26 @@ public class GravityDemoScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            Sun aSun = new Sun();
-            aSun.bCollisionDetect = true;
-            aSun.setCollisionCategory(TestCommon.CATEGORY_CIRCLE);
-            aSun.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
-            aSun.bCollisionArbitrary = true;
-            aSun.setMass(MassOfSun);
-            aSun.setWidth(50);
-            aSun.setHeight(aSun.getWidth());
-            aSun.setCentreX(e.getX());
-            aSun.setCentreY(e.getY());
-            aSun.setLayer(1);
-            aSun.setVelocityX(abs(theRandom.nextInt()) % 50 + 100);
-            if (theRandom.nextBoolean())
-                aSun.setVelocityX(-1 * aSun.getVelocityX());
-            aSun.setVelocityY(abs(theRandom.nextInt()) % 50 + 100);
-            if (theRandom.nextBoolean())
-                aSun.setVelocityY(-1 * aSun.getVelocityY());
-            addSprite(aSun);
+            Star aStar = new Star();
+            aStar.bCollisionDetect = true;
+            aStar.setCollisionCategory(TestCommon.CATEGORY_CIRCLE);
+            aStar.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
+            aStar.bCollisionArbitrary = true;
+            aStar.setMass(MassOfStar);
+            aStar.setWidth(50);
+            aStar.setHeight(aStar.getWidth());
+            aStar.setCentreX(e.getX());
+            aStar.setCentreY(e.getY());
+            aStar.setLayer(1);
+
+            addSprite(aStar);
+
+//            aSun.setVelocityX(abs(theRandom.nextInt()) % 50 + 100);
+//            if (theRandom.nextBoolean())
+//                aSun.setVelocityX(-1 * aSun.getVelocityX());
+//            aSun.setVelocityY(abs(theRandom.nextInt()) % 50 + 100);
+//            if (theRandom.nextBoolean())
+//                aSun.setVelocityY(-1 * aSun.getVelocityY());
 
             Set<Entity> all = getAllEntities();
 
@@ -57,13 +59,13 @@ public class GravityDemoScene extends WallScene
                 if (aEntity instanceof Planet)
                 {
                     Planet aPlanet = (Planet) aEntity;
-                    aPlanet.addEntity(aSun);
+                    aPlanet.addEntity(aStar);
                 }
             }
 
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
-            double MaxMassOfPlanet = MassOfSun / 100000000000.0f;
+            double MaxMassOfPlanet = MassOfStar / 200000.0f;
             double MaxWidthPlanet = 50;
 
             Planet aPlanet = new Planet();

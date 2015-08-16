@@ -11,7 +11,7 @@ import java.awt.Graphics2D;
  *
  * @author ricolwang
  */
-public class Circle extends ShapeSprite
+public class Rectangle extends ShapeSprite
 {
 
     @Override
@@ -20,6 +20,6 @@ public class Circle extends ShapeSprite
         super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
 
         theGraphics2D.setColor(this.getColor());
-        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
+        theGraphics2D.fillRect(0, 0, (int) this.getWidth(), (int) this.getHeight());
     }
 }
