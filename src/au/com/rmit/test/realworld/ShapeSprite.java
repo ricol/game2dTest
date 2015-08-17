@@ -68,9 +68,9 @@ public class ShapeSprite extends Sprite
     }
 
     @Override
-    public void afterCollisionProcess(double currentTime)
+    public void didCollisionProcess()
     {
-        super.afterCollisionProcess(currentTime); //To change body of generated methods, choose Tools | Templates.
+        super.didCollisionProcess(); //To change body of generated methods, choose Tools | Templates.
 
         Wall theBottomWall = ((RealWorldScene) this.theScene).theWallBottom;
 
