@@ -64,6 +64,8 @@ public class ShapeSprite extends Sprite
         super.didCollisionProcess(); //To change body of generated methods, choose Tools | Templates.
 
         this.checkWall();
+        
+//        this.checkOthers();
     }
 
     public void processCollision(Sprite target)
@@ -138,6 +140,27 @@ public class ShapeSprite extends Sprite
             bHitWall = true;
 
         if (bHitWall)
+            this.restorePosition();
+    }
+    
+    void checkOthers()
+    {
+        if (this.theScene == null) return;
+
+        boolean bHit = false;
+        
+        for (Sprite aSprite : this.theScene.getAllSprites())
+        {
+            if (aSprite.equals(this)) continue;
+            
+            if (this.collideWith(aSprite))
+            {
+                bHit = true;
+                break;
+            }
+        }
+        
+        if (bHit)
             this.restorePosition();
     }
 
