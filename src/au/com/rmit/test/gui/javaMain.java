@@ -1,5 +1,6 @@
 package au.com.rmit.test.gui;
 
+import au.com.philology.common.JavaTheme;
 import javax.swing.SwingUtilities;
 
 /*
@@ -20,6 +21,7 @@ public class javaMain
         {
             public void run()
             {
+                JavaTheme.setLookAndFeel(JavaTheme.LOOKANDFEEL_MOTIF);
                 new FrameMain().setVisible(true);
             }
         });
