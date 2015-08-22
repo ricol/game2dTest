@@ -10,8 +10,6 @@ import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import au.com.rmit.test.sprites.Wall;
-import java.awt.Graphics2D;
-import static java.lang.Math.abs;
 
 /**
  *
@@ -29,13 +27,6 @@ public class ShapeSprite extends Sprite
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
         this.enableGravity();
-    }
-
-    @Override
-    public void onCustomDraw(Graphics2D theGraphics2D)
-    {
-        super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
-
     }
 
     @Override
@@ -68,21 +59,13 @@ public class ShapeSprite extends Sprite
     }
 
     @Override
-    public void afterCollisionProcess(double currentTime)
+    public void didCollisionProcess()
     {
-        super.afterCollisionProcess(currentTime); //To change body of generated methods, choose Tools | Templates.
-
-        Wall theBottomWall = ((RealWorldScene) this.theScene).theWallBottom;
-
-        this.enableGravity();
-
-        if (abs(this.getVelocityY()) <= 70 && distanceToWall((Wall) theBottomWall) <= 2)
-        {
-            this.setVelocityY(0);
-            this.disableGravity();
-        }
+        super.didCollisionProcess(); //To change body of generated methods, choose Tools | Templates.
 
         this.checkWall();
+        
+//        this.checkOthers();
     }
 
     public void processCollision(Sprite target)
@@ -148,25 +131,37 @@ public class ShapeSprite extends Sprite
         if (this.theScene == null)
             return;
 
-        Wall theWall = ((RealWorldScene) this.theScene).theWallTop;
-        while (this.getY() < theWall.getY() + theWall.getHeight())
-            this.setY(this.getY() + 1);
+        boolean bHitWall = false;
 
-        theWall = ((RealWorldScene) this.theScene).theWallBottom;
-        while (this.getY() + this.getHeight() > theWall.getY())
-            this.setY(this.getY() - 1);
+        if (this.collideWith(((RealWorldScene) this.theScene).theWallTop)
+                || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
+                || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
+                || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
+            bHitWall = true;
 
-        theWall = ((RealWorldScene) this.theScene).theWallLeft;
-        while (this.getX() < theWall.getX() + theWall.getWidth())
-            this.setX(this.getX() + 1);
-
-        theWall = ((RealWorldScene) this.theScene).theWallRight;
-        while (this.getX() + this.getWidth() > theWall.getX())
-            this.setX(this.getX() - 1);
+        if (bHitWall)
+            this.restorePosition();
     }
-
-    double distanceToWall(Wall theWall)
+    
+    void checkOthers()
     {
-        return abs(this.getCentreY() + this.getHeight() / 2 - theWall.getY());
+        if (this.theScene == null) return;
+
+        boolean bHit = false;
+        
+        for (Sprite aSprite : this.theScene.getAllSprites())
+        {
+            if (aSprite.equals(this)) continue;
+            
+            if (this.collideWith(aSprite))
+            {
+                bHit = true;
+                break;
+            }
+        }
+        
+        if (bHit)
+            this.restorePosition();
     }
+
 }

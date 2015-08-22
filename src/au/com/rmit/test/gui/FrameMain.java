@@ -5,9 +5,7 @@ import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
 import au.com.rmit.test.realworld.RealWorldScene;
 import au.com.rmit.test.universe.GravityDemoScene;
-import java.awt.Dimension;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import static java.lang.System.exit;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,18 +22,6 @@ public class FrameMain extends javax.swing.JFrame
     public FrameMain()
     {
         initComponents();
-
-        this.addComponentListener(new ComponentAdapter()
-        {
-            @Override
-            public void componentResized(ComponentEvent evt)
-            {
-                int x = 25, y = 50;
-                panelGame.setLocation(x, y);
-                panelGame.setSize(new Dimension(getWidth() - 2 * x, getHeight() - 2 * y));
-                Director.getSharedInstance().updatePosition(0, 0, panelGame.getWidth(), panelGame.getHeight());
-            }
-        });
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +30,7 @@ public class FrameMain extends javax.swing.JFrame
     {
 
         btnPause = new javax.swing.JButton();
-        btnStop = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
         panelGame = new javax.swing.JPanel();
         btnFountain = new javax.swing.JButton();
         btnFireworks = new javax.swing.JButton();
@@ -69,12 +55,12 @@ public class FrameMain extends javax.swing.JFrame
             }
         });
 
-        btnStop.setText("Stop");
-        btnStop.addActionListener(new java.awt.event.ActionListener()
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnStopActionPerformed(evt);
+                btnCloseActionPerformed(evt);
             }
         });
 
@@ -137,8 +123,8 @@ public class FrameMain extends javax.swing.JFrame
                         .addContainerGap()
                         .addComponent(btnPause)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnStop)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                        .addComponent(btnClose)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                         .addComponent(btnGravity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRealWorld)
@@ -157,7 +143,7 @@ public class FrameMain extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPause)
-                    .addComponent(btnStop)
+                    .addComponent(btnClose)
                     .addComponent(btnFountain)
                     .addComponent(btnFireworks)
                     .addComponent(btnRealWorld)
@@ -177,53 +163,49 @@ public class FrameMain extends javax.swing.JFrame
 
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPauseActionPerformed
     {//GEN-HEADEREND:event_btnPauseActionPerformed
-        // TODO add your handling code here:
         if (Director.getSharedInstance().currentScene != null)
         {
             Director.getSharedInstance().currentScene.pause();
         }
+
+        if (Director.getSharedInstance().currentScene.isScenePaused())
+            this.btnPause.setText("Continue");
+        else
+            this.btnPause.setText("Pause");
     }//GEN-LAST:event_btnPauseActionPerformed
 
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnStopActionPerformed
-    {//GEN-HEADEREND:event_btnStopActionPerformed
-        // TODO add your handling code here:
-        if (Director.getSharedInstance().currentScene != null)
-        {
-            Director.getSharedInstance().currentScene.stop();
-        }
-    }//GEN-LAST:event_btnStopActionPerformed
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
+    {//GEN-HEADEREND:event_btnCloseActionPerformed
+        exit(0);
+    }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnFountainActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnFountainActionPerformed
     {//GEN-HEADEREND:event_btnFountainActionPerformed
-        // TODO add your handling code here:
         Director.getSharedInstance().showScene(new FountainScene());
     }//GEN-LAST:event_btnFountainActionPerformed
 
     private void btnFireworksActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnFireworksActionPerformed
     {//GEN-HEADEREND:event_btnFireworksActionPerformed
-        // TODO add your handling code here:
         Director.getSharedInstance().showScene(new FireworksScene());
     }//GEN-LAST:event_btnFireworksActionPerformed
 
     private void btnRealWorldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRealWorldActionPerformed
     {//GEN-HEADEREND:event_btnRealWorldActionPerformed
-        // TODO add your handling code here:
         Director.getSharedInstance().showScene(new RealWorldScene());
     }//GEN-LAST:event_btnRealWorldActionPerformed
 
     private void btnGravityActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGravityActionPerformed
     {//GEN-HEADEREND:event_btnGravityActionPerformed
-        // TODO add your handling code here:
         Director.getSharedInstance().showScene(new GravityDemoScene());
     }//GEN-LAST:event_btnGravityActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnFireworks;
     private javax.swing.JButton btnFountain;
     private javax.swing.JButton btnGravity;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnRealWorld;
-    private javax.swing.JButton btnStop;
     private javax.swing.JPanel panelGame;
     // End of variables declaration//GEN-END:variables
 }

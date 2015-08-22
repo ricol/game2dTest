@@ -29,7 +29,7 @@ public class RealWorldScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            Sprite aCircle = new Rectangle();
+            Sprite aCircle = new Circle();
 
             aCircle.setBlue(255);
 

@@ -53,7 +53,7 @@ public class FountainScene extends Scene
     {
         super.pause();
 
-        if (bPaused)
+        if (this.isScenePaused())
         {
             this.theTimer.stop();
         } else
