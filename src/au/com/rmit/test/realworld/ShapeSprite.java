@@ -34,10 +34,6 @@ public class ShapeSprite extends Sprite
     {
         if (target instanceof Wall)
         {
-            Vector V1 = new Vector(this.getVelocityX(), this.getVelocityY());
-            V1.print("BEFORE V");
-            System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
-
             Wall aWall = (Wall) target;
             if (aWall.wallType == Wall.WALLTYPE.LEFT)
             {
@@ -50,22 +46,19 @@ public class ShapeSprite extends Sprite
                 this.setVelocityY(-this.getVelocityY());
             } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
             {
-                double v = this.getVelocityY();
-                v -= 5;
-                this.setVelocityY(-v);
+                this.setVelocityY(-this.getVelocityY());
             }
+
         } else
             this.processCollision(target);
     }
 
     @Override
-    public void didCollisionProcess()
+    public void didFinishUpdateState()
     {
-        super.didCollisionProcess(); //To change body of generated methods, choose Tools | Templates.
+        super.didFinishUpdateState(); //To change body of generated methods, choose Tools | Templates.
 
         this.checkWall();
-        
-//        this.checkOthers();
     }
 
     public void processCollision(Sprite target)
@@ -134,34 +127,15 @@ public class ShapeSprite extends Sprite
         boolean bHitWall = false;
 
         if (this.collideWith(((RealWorldScene) this.theScene).theWallTop)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
+            || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
+            || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
+            || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
             bHitWall = true;
 
         if (bHitWall)
-            this.restorePosition();
-    }
-    
-    void checkOthers()
-    {
-        if (this.theScene == null) return;
-
-        boolean bHit = false;
-        
-        for (Sprite aSprite : this.theScene.getAllSprites())
         {
-            if (aSprite.equals(this)) continue;
-            
-            if (this.collideWith(aSprite))
-            {
-                bHit = true;
-                break;
-            }
-        }
-        
-        if (bHit)
             this.restorePosition();
+        }
     }
 
 }

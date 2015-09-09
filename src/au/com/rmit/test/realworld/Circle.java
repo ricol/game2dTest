@@ -22,4 +22,5 @@ public class Circle extends ShapeSprite
         theGraphics2D.setColor(this.getColor());
         theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
+
 }
