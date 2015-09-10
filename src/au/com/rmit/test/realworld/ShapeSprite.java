@@ -5,8 +5,11 @@
  */
 package au.com.rmit.test.realworld;
 
+import au.com.rmit.Game2dEngine.geometry.CircleShape;
+import au.com.rmit.Game2dEngine.geometry.ClosureShape;
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import au.com.rmit.test.sprites.Wall;
@@ -34,10 +37,6 @@ public class ShapeSprite extends Sprite
     {
         if (target instanceof Wall)
         {
-            Vector V1 = new Vector(this.getVelocityX(), this.getVelocityY());
-            V1.print("BEFORE V");
-            System.out.println("Y: " + (this.getY() + this.getHeight()) + " <-> Bottom: " + this.theScene.getHeight());
-
             Wall aWall = (Wall) target;
             if (aWall.wallType == Wall.WALLTYPE.LEFT)
             {
@@ -50,22 +49,19 @@ public class ShapeSprite extends Sprite
                 this.setVelocityY(-this.getVelocityY());
             } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
             {
-                double v = this.getVelocityY();
-                v -= 5;
-                this.setVelocityY(-v);
+                this.setVelocityY(-this.getVelocityY());
             }
+
         } else
             this.processCollision(target);
     }
 
     @Override
-    public void didCollisionProcess()
+    public void didFinishUpdateState()
     {
-        super.didCollisionProcess(); //To change body of generated methods, choose Tools | Templates.
+        super.didFinishUpdateState(); //To change body of generated methods, choose Tools | Templates.
 
         this.checkWall();
-        
-//        this.checkOthers();
     }
 
     public void processCollision(Sprite target)
@@ -140,28 +136,21 @@ public class ShapeSprite extends Sprite
             bHitWall = true;
 
         if (bHitWall)
-            this.restorePosition();
-    }
-    
-    void checkOthers()
-    {
-        if (this.theScene == null) return;
-
-        boolean bHit = false;
-        
-        for (Sprite aSprite : this.theScene.getAllSprites())
         {
-            if (aSprite.equals(this)) continue;
-            
-            if (this.collideWith(aSprite))
-            {
-                bHit = true;
-                break;
-            }
-        }
-        
-        if (bHit)
             this.restorePosition();
+        }
     }
 
+    @Override
+    public void onAddToLayer(Layer theLayer)
+    {
+        super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
+
+        this.setTheShape(this.buildShape());
+    }
+
+    ClosureShape buildShape()
+    {
+        return new CircleShape(this.getCentreX(), this.getCentreY(), this.getWidth() > this.getHeight() ? this.getWidth() / 2.0f : this.getHeight() / 2.0f);
+    }
 }

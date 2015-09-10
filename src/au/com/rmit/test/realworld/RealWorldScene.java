@@ -5,10 +5,12 @@
  */
 package au.com.rmit.test.realworld;
 
+import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.scene.WallScene;
 import java.awt.event.MouseEvent;
+import static java.lang.Math.abs;
 
 /**
  *
@@ -17,7 +19,7 @@ import java.awt.event.MouseEvent;
 public class RealWorldScene extends WallScene
 {
 
-    Gravity g = new Gravity(0, 1000);
+    Gravity g = new Gravity(0, 0);
 
     @Override
     public void mousePressed(MouseEvent e)
@@ -29,19 +31,23 @@ public class RealWorldScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            Sprite aCircle = new Circle();
+            Sprite aShape = new Polygon();
 
-            aCircle.setBlue(255);
+            aShape.setBlue(255);
 
-            aCircle.setCentreX(e.getX());
-            aCircle.setCentreY(e.getY());
+            aShape.setCentreX(e.getX());
+            aShape.setCentreY(e.getY());
 
-            aCircle.setMass(500);
-            aCircle.setWidth((aCircle.getMass() / maxmass) * size);
-            aCircle.setHeight(aCircle.getWidth());
+            aShape.setMass(500);
+            aShape.setWidth((aShape.getMass() / maxmass) * size);
+            aShape.setHeight(aShape.getWidth());
 
-            addSprite(aCircle);
-            aCircle.applyGravity(g);
+            aShape.applyGravity(g);
+            float vx = abs(theRandom.nextInt()) % 200 + 100;
+            float vy = abs(theRandom.nextInt()) % 200 + 100;
+            aShape.setVelocity(new Vector(vx, vy));
+
+            addSprite(aShape);
 
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
@@ -56,8 +62,13 @@ public class RealWorldScene extends WallScene
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
             aCircle.setHeight(aCircle.getWidth());
 
-            addSprite(aCircle);
             aCircle.applyGravity(g);
+
+            float vx = abs(theRandom.nextInt()) % 100 + 50;
+            float vy = abs(theRandom.nextInt()) % 100 + 50;
+            aCircle.setVelocity(new Vector(vx, vy));
+
+            addSprite(aCircle);
         }
     }
 }

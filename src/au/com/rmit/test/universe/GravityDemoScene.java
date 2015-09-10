@@ -45,13 +45,6 @@ public class GravityDemoScene extends WallScene
 
             addSprite(aStar);
 
-//            aSun.setVelocityX(abs(theRandom.nextInt()) % 50 + 100);
-//            if (theRandom.nextBoolean())
-//                aSun.setVelocityX(-1 * aSun.getVelocityX());
-//            aSun.setVelocityY(abs(theRandom.nextInt()) % 50 + 100);
-//            if (theRandom.nextBoolean())
-//                aSun.setVelocityY(-1 * aSun.getVelocityY());
-
             Set<Entity> all = getAllEntities();
 
             for (Entity aEntity : all)

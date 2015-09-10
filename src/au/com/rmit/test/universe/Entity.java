@@ -27,9 +27,10 @@ public class Entity extends Sprite
         super(0, 0, 0, 0, 0, 0, 0);
 
         this.bCustomDrawing = true;
-        
+
         this.theColorOfTheShape = Color.green;
-//        this.bDrawShape = true;
+        this.bCollisionArbitrary = true;
+        this.bCollisionDetect = true;
     }
 
     @Override
@@ -58,8 +59,9 @@ public class Entity extends Sprite
 
         for (Entity aObject : otherObjects)
         {
-            if (aObject == null) continue;
-            
+            if (aObject == null)
+                continue;
+
             if (aObject.equals(this))
             {
                 continue;
