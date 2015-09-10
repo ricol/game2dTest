@@ -5,6 +5,10 @@
  */
 package au.com.rmit.test.realworld;
 
+import au.com.rmit.Game2dEngine.geometry.ClosureShape;
+import au.com.rmit.Game2dEngine.geometry.Line;
+import au.com.rmit.Game2dEngine.geometry.PolygonShape;
+
 /**
  *
  * @author ricolwang
@@ -19,12 +23,23 @@ public class Polygon extends ShapeSprite
         this.bDrawShape = true;
     }
 
-//    @Override
-//    public void onCustomDraw(Graphics2D theGraphics2D)
-//    {
-//        super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
-//
-//        theGraphics2D.setColor(this.getColor());
-//        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
-//    }
+    @Override
+    ClosureShape buildShape()
+    {
+        PolygonShape aPolygon = new PolygonShape();
+        double centreX = this.getCentreX();
+        double centreY = this.getCentreY();
+        double radius = this.getWidth();
+        Line line1 = new Line(centreX - radius, centreY - radius, centreX + radius, centreY - radius);
+        Line line2 = new Line(centreX + radius, centreY - radius, centreX + radius, centreY + radius);
+        Line line3 = new Line(centreX - radius, centreY + radius, centreX + radius, centreY + radius);
+        Line line4 = new Line(centreX - radius, centreY - radius, centreX - radius, centreY + radius);
+        aPolygon.addSide(line1);
+        aPolygon.addSide(line2);
+        aPolygon.addSide(line3);
+        aPolygon.addSide(line4);
+
+        return aPolygon;
+    }
+
 }

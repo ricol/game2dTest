@@ -5,8 +5,11 @@
  */
 package au.com.rmit.test.realworld;
 
+import au.com.rmit.Game2dEngine.geometry.CircleShape;
+import au.com.rmit.Game2dEngine.geometry.ClosureShape;
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import au.com.rmit.test.sprites.Wall;
@@ -127,9 +130,9 @@ public class ShapeSprite extends Sprite
         boolean bHitWall = false;
 
         if (this.collideWith(((RealWorldScene) this.theScene).theWallTop)
-            || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
-            || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
-            || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
+                || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
+                || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
+                || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
             bHitWall = true;
 
         if (bHitWall)
@@ -138,4 +141,16 @@ public class ShapeSprite extends Sprite
         }
     }
 
+    @Override
+    public void onAddToLayer(Layer theLayer)
+    {
+        super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
+
+        this.setTheShape(this.buildShape());
+    }
+
+    ClosureShape buildShape()
+    {
+        return new CircleShape(this.getCentreX(), this.getCentreY(), this.getWidth() > this.getHeight() ? this.getWidth() / 2.0f : this.getHeight() / 2.0f);
+    }
 }

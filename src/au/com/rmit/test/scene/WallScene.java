@@ -26,7 +26,7 @@ public class WallScene extends Scene implements MouseListener
     public Wall theWallRight;
 
     int startX = 5, startY = 5;
-    int wallSize = 50;
+    int wallSize = 20;
 
     void resizeWalls()
     {
