@@ -34,19 +34,17 @@ public class RealWorldScene extends WallScene
             Sprite aShape = new Polygon();
 
             aShape.setBlue(255);
+            aShape.setMass(500);
+            aShape.setWidth(50);
+            aShape.setHeight(50);
+
+            aShape.applyGravity(g);
+            float vx = abs(theRandom.nextInt()) % 200 + 100;
+            float vy = abs(theRandom.nextInt()) % 200 + 100;
+            aShape.setVelocity(new Vector(vx, vy));
 
             aShape.setCentreX(e.getX());
             aShape.setCentreY(e.getY());
-
-            aShape.setMass(500);
-            aShape.setWidth(200);
-            aShape.setHeight(200);
-
-            aShape.applyGravity(g);
-//            float vx = abs(theRandom.nextInt()) % 200 + 100;
-//            float vy = abs(theRandom.nextInt()) % 200 + 100;
-//            aShape.setVelocity(new Vector(vx, vy));
-
             addSprite(aShape);
 
         } else if (e.getButton() == MouseEvent.BUTTON1)
@@ -54,9 +52,6 @@ public class RealWorldScene extends WallScene
             Sprite aCircle = new Circle();
 
             aCircle.setRed(255);
-
-            aCircle.setCentreX(e.getX());
-            aCircle.setCentreY(e.getY());
 
             aCircle.setMass(1000);
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
@@ -68,6 +63,8 @@ public class RealWorldScene extends WallScene
             float vy = abs(theRandom.nextInt()) % 100 + 50;
             aCircle.setVelocity(new Vector(vx, vy));
 
+            aCircle.setCentreX(e.getX());
+            aCircle.setCentreY(e.getY());
             addSprite(aCircle);
         }
     }

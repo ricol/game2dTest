@@ -16,8 +16,8 @@ import java.util.Set;
  */
 public class Polygon extends ShapeSprite
 {
-
-    int number = 0;
+    int min = 5;
+    double divide = 10;
 
     public Polygon()
     {
@@ -33,43 +33,52 @@ public class Polygon extends ShapeSprite
         double centreX = this.getCentreX();
         double centreY = this.getCentreY();
         double radius = this.getWidth();
-        Line line1 = new Line(centreX - radius, centreY - radius, centreX + radius, centreY - radius);
-        Line line2 = new Line(centreX + radius, centreY - radius, centreX + radius, centreY + radius);
-        Line line3 = new Line(centreX - radius, centreY + radius, centreX + radius, centreY + radius);
-        Line line4 = new Line(centreX - radius, centreY - radius, centreX - radius, centreY + radius);
+        Line lineTop = new Line(centreX - radius, centreY - radius, centreX + radius, centreY - radius);
+        Line lineRight = new Line(centreX + radius, centreY - radius, centreX + radius, centreY + radius);
+        Line lineBottom = new Line(centreX + radius, centreY + radius, centreX - radius, centreY + radius);
+        Line lineLeft = new Line(centreX - radius, centreY + radius, centreX - radius, centreY - radius);
 
-        double l = 25;
-        Set<Line> newLines;
-        aPolygon.addSide(line1);
-//        Set<Line> newLines = line1.getSeperateLines(l);
-//        aPolygon.addSides(newLines);
-
-        aPolygon.addSide(line2);
-//        newLines = line2.getSeperateLines(l);
-//        aPolygon.addSides(newLines);
-
-        aPolygon.addSide(line3);
-//        newLines = line3.getSeperateLines(l);
-//        aPolygon.addSides(newLines);
-
-        aPolygon.addSide(line4);
-
-        this.addLines(line4, l, aPolygon);
+        double l = 30;
+        
+//        aPolygon.addSide(lineTop);
+//        aPolygon.addSide(lineRight);
+//        aPolygon.addSide(lineBottom);
+//        aPolygon.addSide(lineLeft);
+        
+        this.addLinesCounterClock(lineTop, l, aPolygon);
+        this.addLinesClock(lineRight, l, aPolygon);
+        this.addLinesClock(lineBottom, l, aPolygon);
+        this.addLinesCounterClock(lineLeft, l, aPolygon);
 
         return aPolygon;
     }
 
-    void addLines(Line aLine, double distance, PolygonShape thePolygon)
+    void addLinesCounterClock(Line aLine, double distance, PolygonShape thePolygon)
     {
-        if (number >= 3 * 2)
+        if (distance < min)
+        {
+            thePolygon.addSide(aLine);
             return;
+        }
 
-        number++;
-        Set<Line> lines = aLine.getSeperateLines(distance);
+        Set<Line> lines = aLine.getSeperateLinesCounterClock(distance);
 
-        thePolygon.addSides(lines);
         for (Line tmpLine : lines)
-            this.addLines(tmpLine, distance - 5, thePolygon);
+            this.addLinesCounterClock(tmpLine, distance / divide, thePolygon);
+    }
+    
+    void addLinesClock(Line aLine, double distance, PolygonShape thePolygon)
+    {
+        if (distance < min)
+        {
+            thePolygon.addSide(aLine);
+            return;
+        }
+
+        Set<Line> lines = aLine.getSeperateLinesClock(distance);
+
+        for (Line tmpLine : lines)
+            this.addLinesClock(tmpLine, distance / divide, thePolygon);
     }
 
 }
