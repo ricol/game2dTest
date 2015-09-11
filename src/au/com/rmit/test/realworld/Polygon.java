@@ -17,7 +17,7 @@ import java.util.Set;
 public class Polygon extends ShapeSprite
 {
     int min = 5;
-    double divide = 10;
+    double divide = 5;
 
     public Polygon()
     {
@@ -40,14 +40,19 @@ public class Polygon extends ShapeSprite
 
         double l = 30;
         
-//        aPolygon.addSide(lineTop);
-//        aPolygon.addSide(lineRight);
-//        aPolygon.addSide(lineBottom);
-//        aPolygon.addSide(lineLeft);
+        aPolygon.addSide(lineTop);
+        aPolygon.addSide(lineRight);
+        aPolygon.addSide(lineBottom);
+        aPolygon.addSide(lineLeft);
         
-        this.addLinesCounterClock(lineTop, l, aPolygon);
+        this.addLinesClock(lineTop, l, aPolygon);
         this.addLinesClock(lineRight, l, aPolygon);
         this.addLinesClock(lineBottom, l, aPolygon);
+        this.addLinesClock(lineLeft, l, aPolygon);
+        
+        this.addLinesCounterClock(lineTop, l, aPolygon);
+        this.addLinesCounterClock(lineRight, l, aPolygon);
+        this.addLinesCounterClock(lineBottom, l, aPolygon);
         this.addLinesCounterClock(lineLeft, l, aPolygon);
 
         return aPolygon;

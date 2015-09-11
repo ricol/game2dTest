@@ -39,9 +39,9 @@ public class RealWorldScene extends WallScene
             aShape.setHeight(50);
 
             aShape.applyGravity(g);
-            float vx = abs(theRandom.nextInt()) % 200 + 100;
-            float vy = abs(theRandom.nextInt()) % 200 + 100;
-            aShape.setVelocity(new Vector(vx, vy));
+//            float vx = abs(theRandom.nextInt()) % 200 + 100;
+//            float vy = abs(theRandom.nextInt()) % 200 + 100;
+//            aShape.setVelocity(new Vector(vx, vy));
 
             aShape.setCentreX(e.getX());
             aShape.setCentreY(e.getY());
