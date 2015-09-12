@@ -17,8 +17,11 @@ import java.util.ArrayList;
 public class Polygon extends ShapeSprite
 {
 
-    int min = 5;
+    double l = 30;
+    double min = 1;
     double divide = 5;
+    double r = 10;
+    double angle = Math.PI / 12.0;
 
     public Polygon()
     {
@@ -39,57 +42,52 @@ public class Polygon extends ShapeSprite
         Line lineBottom = new Line(centreX + radius, centreY + radius, centreX - radius, centreY + radius);
         Line lineLeft = new Line(centreX - radius, centreY + radius, centreX - radius, centreY - radius);
 
-        double l = 30;
-
         aPolygon.addSide(lineTop);
         aPolygon.addSide(lineRight);
         aPolygon.addSide(lineBottom);
         aPolygon.addSide(lineLeft);
+        this.addLinesClock(lineTop, l, aPolygon, true);
+        this.addLinesClock(lineRight, l, aPolygon, true);
+        this.addLinesClock(lineBottom, l, aPolygon, true);
+        this.addLinesClock(lineLeft, l, aPolygon, true);
 
-        this.addLinesClock(lineTop, l, aPolygon);
-        this.addLinesClock(lineRight, l, aPolygon);
-        this.addLinesClock(lineBottom, l, aPolygon);
-        this.addLinesClock(lineLeft, l, aPolygon);
-
-        this.addLinesCounterClock(lineTop, l, aPolygon);
-        this.addLinesCounterClock(lineRight, l, aPolygon);
-        this.addLinesCounterClock(lineBottom, l, aPolygon);
-        this.addLinesCounterClock(lineLeft, l, aPolygon);
+        this.addLinesCounterClock(lineTop, l, aPolygon, true);
+        this.addLinesCounterClock(lineRight, l, aPolygon, true);
+        this.addLinesCounterClock(lineBottom, l, aPolygon, true);
+        this.addLinesCounterClock(lineLeft, l, aPolygon, true);
         return aPolygon;
     }
 
-    void addLinesCounterClock(Line aLine, double distance, PolygonShape thePolygon)
+    void addLinesCounterClock(Line aLine, double distance, PolygonShape thePolygon, boolean bArrow)
     {
         if (distance < min)
         {
             thePolygon.addSide(aLine);
-            double r = 10;
-            double angle = Math.PI / 12.0;
-            this.addLineArrow(aLine, r, angle, thePolygon);
+            if (bArrow)
+                this.addLineArrow(aLine, r, angle, thePolygon);
             return;
         }
 
-        ArrayList<Line> lines = aLine.getSeperateLinesCounterClock(distance);
+        ArrayList<Line> lines = aLine.getSpecialLinesCounterClockwise(distance);
 
         for (Line tmpLine : lines)
-            this.addLinesCounterClock(tmpLine, distance / divide, thePolygon);
+            this.addLinesCounterClock(tmpLine, distance / divide, thePolygon, bArrow);
     }
 
-    void addLinesClock(Line aLine, double distance, PolygonShape thePolygon)
+    void addLinesClock(Line aLine, double distance, PolygonShape thePolygon, boolean bArrow)
     {
         if (distance < min)
         {
             thePolygon.addSide(aLine);
-            double r = 10;
-            double angle = Math.PI / 12.0;
-            this.addLineArrow(aLine, r, angle, thePolygon);
+            if (bArrow)
+                this.addLineArrow(aLine, r, angle, thePolygon);
             return;
         }
 
-        ArrayList<Line> lines = aLine.getSeperateLinesClock(distance);
+        ArrayList<Line> lines = aLine.getSpecialLinesClockwise(distance);
 
         for (Line tmpLine : lines)
-            this.addLinesClock(tmpLine, distance / divide, thePolygon);
+            this.addLinesClock(tmpLine, distance / divide, thePolygon, bArrow);
     }
 
     void addLineArrow(Line aLine, double l, double angle, PolygonShape thePolygon)
