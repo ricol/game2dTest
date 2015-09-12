@@ -35,8 +35,8 @@ public class RealWorldScene extends WallScene
 
             aShape.setBlue(255);
             aShape.setMass(500);
-            aShape.setWidth(50);
-            aShape.setHeight(50);
+            aShape.setWidth(100);
+            aShape.setHeight(100);
 
             aShape.applyGravity(g);
 //            float vx = abs(theRandom.nextInt()) % 200 + 100;

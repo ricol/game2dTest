@@ -8,7 +8,7 @@ package au.com.rmit.test.realworld;
 import au.com.rmit.Game2dEngine.geometry.ClosureShape;
 import au.com.rmit.Game2dEngine.geometry.Line;
 import au.com.rmit.Game2dEngine.geometry.PolygonShape;
-import java.util.Set;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +16,7 @@ import java.util.Set;
  */
 public class Polygon extends ShapeSprite
 {
+
     int min = 5;
     double divide = 5;
 
@@ -39,22 +40,21 @@ public class Polygon extends ShapeSprite
         Line lineLeft = new Line(centreX - radius, centreY + radius, centreX - radius, centreY - radius);
 
         double l = 30;
-        
+
         aPolygon.addSide(lineTop);
         aPolygon.addSide(lineRight);
         aPolygon.addSide(lineBottom);
         aPolygon.addSide(lineLeft);
-        
+
         this.addLinesClock(lineTop, l, aPolygon);
         this.addLinesClock(lineRight, l, aPolygon);
         this.addLinesClock(lineBottom, l, aPolygon);
         this.addLinesClock(lineLeft, l, aPolygon);
-        
+
         this.addLinesCounterClock(lineTop, l, aPolygon);
         this.addLinesCounterClock(lineRight, l, aPolygon);
         this.addLinesCounterClock(lineBottom, l, aPolygon);
         this.addLinesCounterClock(lineLeft, l, aPolygon);
-
         return aPolygon;
     }
 
@@ -63,27 +63,39 @@ public class Polygon extends ShapeSprite
         if (distance < min)
         {
             thePolygon.addSide(aLine);
+            double r = 10;
+            double angle = Math.PI / 12.0;
+            this.addLineArrow(aLine, r, angle, thePolygon);
             return;
         }
 
-        Set<Line> lines = aLine.getSeperateLinesCounterClock(distance);
+        ArrayList<Line> lines = aLine.getSeperateLinesCounterClock(distance);
 
         for (Line tmpLine : lines)
             this.addLinesCounterClock(tmpLine, distance / divide, thePolygon);
     }
-    
+
     void addLinesClock(Line aLine, double distance, PolygonShape thePolygon)
     {
         if (distance < min)
         {
             thePolygon.addSide(aLine);
+            double r = 10;
+            double angle = Math.PI / 12.0;
+            this.addLineArrow(aLine, r, angle, thePolygon);
             return;
         }
 
-        Set<Line> lines = aLine.getSeperateLinesClock(distance);
+        ArrayList<Line> lines = aLine.getSeperateLinesClock(distance);
 
         for (Line tmpLine : lines)
             this.addLinesClock(tmpLine, distance / divide, thePolygon);
+    }
+
+    void addLineArrow(Line aLine, double l, double angle, PolygonShape thePolygon)
+    {
+        ArrayList<Line> lines = aLine.getArrowLines(l, angle);
+        thePolygon.addSides(lines);
     }
 
 }
