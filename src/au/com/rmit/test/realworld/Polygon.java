@@ -27,7 +27,6 @@ public class Polygon extends ShapeSprite
     {
         super();
 
-        this.bDrawShape = true;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class Polygon extends ShapeSprite
         PolygonShape aPolygon = new PolygonShape();
         double centreX = this.getCentreX();
         double centreY = this.getCentreY();
-        double radius = this.getWidth();
+        double radius = this.getWidth() / 2;
         Line lineTop = new Line(centreX - radius, centreY - radius, centreX + radius, centreY - radius);
         Line lineRight = new Line(centreX + radius, centreY - radius, centreX + radius, centreY + radius);
         Line lineBottom = new Line(centreX + radius, centreY + radius, centreX - radius, centreY + radius);

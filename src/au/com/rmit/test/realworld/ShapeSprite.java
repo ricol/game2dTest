@@ -5,8 +5,8 @@
  */
 package au.com.rmit.test.realworld;
 
-import au.com.rmit.Game2dEngine.geometry.CircleShape;
 import au.com.rmit.Game2dEngine.geometry.ClosureShape;
+import au.com.rmit.Game2dEngine.geometry.Shape;
 import au.com.rmit.Game2dEngine.math.CollisionQuadraticEquation;
 import au.com.rmit.Game2dEngine.math.Vector;
 import au.com.rmit.Game2dEngine.scene.Layer;
@@ -29,6 +29,7 @@ public class ShapeSprite extends Sprite
 
         this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
+        this.bDrawShape = true;
         this.enableGravity();
     }
 
@@ -130,9 +131,9 @@ public class ShapeSprite extends Sprite
         boolean bHitWall = false;
 
         if (this.collideWith(((RealWorldScene) this.theScene).theWallTop)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
-                || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
+            || this.collideWith(((RealWorldScene) this.theScene).theWallBottom)
+            || this.collideWith(((RealWorldScene) this.theScene).theWallLeft)
+            || this.collideWith(((RealWorldScene) this.theScene).theWallRight))
             bHitWall = true;
 
         if (bHitWall)
@@ -146,11 +147,21 @@ public class ShapeSprite extends Sprite
     {
         super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
 
-        this.setTheShape(this.buildShape());
+        ClosureShape aShape = this.buildShape();
+        if (aShape != null)
+            this.setTheShape(aShape);
     }
 
     ClosureShape buildShape()
     {
-        return new CircleShape(this.getCentreX(), this.getCentreY(), this.getWidth() > this.getHeight() ? this.getWidth() / 2.0f : this.getHeight() / 2.0f);
+        return null;
+    }
+    
+    @Override
+    public void onShapeAdded(Shape theShape)
+    {
+        super.onShapeAdded(theShape); //To change body of generated methods, choose Tools | Templates.
+
+        theShape.print("Shape: ");
     }
 }
