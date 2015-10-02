@@ -3,33 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package au.com.rmit.test.realworld;
+package au.com.rmit.test.pinball;
 
-import au.com.rmit.Game2dEngine.geometry.ClosureShape;
-import au.com.rmit.Game2dEngine.geometry.Shape;
-import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import au.com.rmit.test.sprites.Wall;
+import java.awt.Graphics2D;
 
 /**
  *
  * @author ricolwang
  */
-public class ShapeSprite extends Sprite
+public class BaseBall extends Sprite
 {
 
-    public ShapeSprite()
+    public BaseBall()
     {
         this.bCollisionDetect = true;
-        this.setCollisionCategory(TestCommon.CATEGORY_CIRCLE);
-        this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
-
-        this.bCollisionArbitrary = true;
         this.bCustomDrawing = true;
-        this.bDrawShape = true;
+        this.bCollisionArbitrary = true;
         this.bEnablePhysics = true;
-        this.enableGravity();
+        
+        this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
+    }
+
+    @Override
+    public void onCustomDraw(Graphics2D theGraphics2D)
+    {
+        super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
+
+        theGraphics2D.setColor(this.getColor());
+        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
 
     @Override
@@ -56,26 +60,4 @@ public class ShapeSprite extends Sprite
         }
     }
 
-    @Override
-    public void onAddToLayer(Layer theLayer)
-    {
-        super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
-
-        ClosureShape aShape = this.buildShape();
-        if (aShape != null)
-            this.setTheShape(aShape);
-    }
-
-    ClosureShape buildShape()
-    {
-        return null;
-    }
-
-    @Override
-    public void onShapeAdded(Shape theShape)
-    {
-        super.onShapeAdded(theShape); //To change body of generated methods, choose Tools | Templates.
-
-        theShape.print("Shape: ");
-    }
 }

@@ -31,19 +31,38 @@ public class RealWorldScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            Sprite aShape = new Polygon();
+            Sprite aShape = new Rectangle();
             aShape.setBlue(255);
             aShape.setMass(500);
             aShape.setWidth(100);
             aShape.setHeight(100);
             aShape.applyGravity(g);
-//            float vx = abs(theRandom.nextInt()) % 200 + 100;
-//            float vy = abs(theRandom.nextInt()) % 200 + 100;
-//            aShape.setVelocity(new Vector(vx, vy));
+            float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
+            float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
+            aShape.setVelocity(new Vector(vx, vy));
             aShape.setCentreX(e.getX());
             aShape.setCentreY(e.getY());
             addSprite(aShape);
 
+//            ExpandByAction aExpandAction = new ExpandByAction();
+//            aExpandAction.expandBy(100, 1);
+//            
+//            ExpandByAction aExpandReverseAction = new ExpandByAction();
+//            aExpandReverseAction.expandBy(-100, 1);
+//            
+//            Set<Action> firstSet = new HashSet<>();
+//            firstSet.add(aExpandAction);
+//            aShape.enQueueActions(firstSet);
+//            
+//            firstSet = new HashSet<>();
+//            firstSet.add(aExpandReverseAction);
+//            aShape.enQueueActions(firstSet);
+//            RotateByAction aAction = new RotateByAction();
+//            aAction.rotateBy(Math.PI, 2);
+//            aAction.setSprite(aShape);
+//            
+//            aShape.addAction(aAction);
+//            aShape.bDeadIfNoActions = true;
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
             Sprite aCircle = new Circle();
@@ -52,8 +71,8 @@ public class RealWorldScene extends WallScene
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
             aCircle.setHeight(aCircle.getWidth());
             aCircle.applyGravity(g);
-            float vx = abs(theRandom.nextInt()) % 100 + 50;
-            float vy = abs(theRandom.nextInt()) % 100 + 50;
+            float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
+            float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
             aCircle.setVelocity(new Vector(vx, vy));
             aCircle.setCentreX(e.getX());
             aCircle.setCentreY(e.getY());
