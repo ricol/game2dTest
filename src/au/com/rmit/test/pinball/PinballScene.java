@@ -24,12 +24,12 @@ public class PinballScene extends WallScene
         {
             float start_x = e.getX();
             float start_y = e.getY();
-            float width = 30;
-            float gap_x = 10;
-            float height = 30;
-            float gap_y = 10;
+            float width = 10;
+            float gap_x = 2;
+            float height = 10;
+            float gap_y = 2;
 
-            for (int i = 0; i <= 4; i++)
+            for (int i = 0; i <= 10; i++)
             {
                 for (int j = 0; j <= i; j++)
                 {

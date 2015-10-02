@@ -6,11 +6,9 @@
 package au.com.rmit.test.realworld;
 
 import au.com.rmit.Game2dEngine.geometry.ClosureShape;
-import au.com.rmit.Game2dEngine.geometry.Shape;
 import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
-import au.com.rmit.test.sprites.Wall;
 
 /**
  *
@@ -33,30 +31,6 @@ public class ShapeSprite extends Sprite
     }
 
     @Override
-    public void onCollideWith(Sprite target)
-    {
-        super.onCollideWith(target);
-
-        if (target instanceof Wall)
-        {
-            Wall aWall = (Wall) target;
-            if (aWall.wallType == Wall.WALLTYPE.LEFT)
-            {
-                this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == Wall.WALLTYPE.RIGHT)
-            {
-                this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == Wall.WALLTYPE.TOP)
-            {
-                this.setVelocityY(-this.getVelocityY());
-            } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
-            {
-                this.setVelocityY(-this.getVelocityY());
-            }
-        }
-    }
-
-    @Override
     public void onAddToLayer(Layer theLayer)
     {
         super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
@@ -69,13 +43,5 @@ public class ShapeSprite extends Sprite
     ClosureShape buildShape()
     {
         return null;
-    }
-
-    @Override
-    public void onShapeAdded(Shape theShape)
-    {
-        super.onShapeAdded(theShape); //To change body of generated methods, choose Tools | Templates.
-
-        theShape.print("Shape: ");
     }
 }

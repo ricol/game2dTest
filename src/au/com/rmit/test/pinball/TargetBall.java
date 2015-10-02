@@ -15,7 +15,7 @@ public class TargetBall extends BaseBall
     public TargetBall()
     {
         this.setRed(255);
-        this.setWidth(30);
+        this.setWidth(10);
         this.setHeight(this.getWidth());
         this.setMass(this.getWidth());
 

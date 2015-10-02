@@ -7,7 +7,6 @@ package au.com.rmit.test.pinball;
 
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
-import au.com.rmit.test.sprites.Wall;
 import java.awt.Graphics2D;
 
 /**
@@ -24,7 +23,7 @@ public class BaseBall extends Sprite
         this.bCollisionArbitrary = true;
         this.bEnablePhysics = true;
         this.bKillWhenOutOfScene = true;
-        
+
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
     }
 
@@ -35,30 +34,6 @@ public class BaseBall extends Sprite
 
         theGraphics2D.setColor(this.getColor());
         theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
-    }
-
-    @Override
-    public void onCollideWith(Sprite target)
-    {
-        super.onCollideWith(target);
-
-        if (target instanceof Wall)
-        {
-            Wall aWall = (Wall) target;
-            if (aWall.wallType == Wall.WALLTYPE.LEFT)
-            {
-                this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == Wall.WALLTYPE.RIGHT)
-            {
-                this.setVelocityX(-this.getVelocityX());
-            } else if (aWall.wallType == Wall.WALLTYPE.TOP)
-            {
-                this.setVelocityY(-this.getVelocityY());
-            } else if (aWall.wallType == Wall.WALLTYPE.BOTTOM)
-            {
-                this.setVelocityY(-this.getVelocityY());
-            }
-        }
     }
 
 }

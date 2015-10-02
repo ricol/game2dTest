@@ -6,7 +6,6 @@
 package au.com.rmit.test.realworld;
 
 import au.com.rmit.Game2dEngine.math.Vector;
-import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.scene.WallScene;
 import java.awt.event.MouseEvent;
@@ -18,8 +17,6 @@ import static java.lang.Math.abs;
  */
 public class RealWorldScene extends WallScene
 {
-
-    Gravity g = new Gravity(0, 0);
 
     @Override
     public void mousePressed(MouseEvent e)
@@ -36,33 +33,12 @@ public class RealWorldScene extends WallScene
             aShape.setMass(500);
             aShape.setWidth(100);
             aShape.setHeight(100);
-            aShape.applyGravity(g);
             float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
             float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
             aShape.setVelocity(new Vector(vx, vy));
             aShape.setCentreX(e.getX());
             aShape.setCentreY(e.getY());
             addSprite(aShape);
-
-//            ExpandByAction aExpandAction = new ExpandByAction();
-//            aExpandAction.expandBy(100, 1);
-//            
-//            ExpandByAction aExpandReverseAction = new ExpandByAction();
-//            aExpandReverseAction.expandBy(-100, 1);
-//            
-//            Set<Action> firstSet = new HashSet<>();
-//            firstSet.add(aExpandAction);
-//            aShape.enQueueActions(firstSet);
-//            
-//            firstSet = new HashSet<>();
-//            firstSet.add(aExpandReverseAction);
-//            aShape.enQueueActions(firstSet);
-//            RotateByAction aAction = new RotateByAction();
-//            aAction.rotateBy(Math.PI, 2);
-//            aAction.setSprite(aShape);
-//            
-//            aShape.addAction(aAction);
-//            aShape.bDeadIfNoActions = true;
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
             Sprite aCircle = new Circle();
@@ -70,7 +46,6 @@ public class RealWorldScene extends WallScene
             aCircle.setMass(1000);
             aCircle.setWidth((aCircle.getMass() / maxmass) * size);
             aCircle.setHeight(aCircle.getWidth());
-            aCircle.applyGravity(g);
             float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
             float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
             aCircle.setVelocity(new Vector(vx, vy));

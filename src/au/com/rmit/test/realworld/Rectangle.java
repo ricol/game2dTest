@@ -8,7 +8,6 @@ package au.com.rmit.test.realworld;
 import au.com.rmit.Game2dEngine.geometry.ClosureShape;
 import au.com.rmit.Game2dEngine.geometry.Line;
 import au.com.rmit.Game2dEngine.geometry.PolygonShape;
-import au.com.rmit.Game2dEngine.sprite.Sprite;
 import java.util.ArrayList;
 
 /**
@@ -49,12 +48,12 @@ public class Rectangle extends ShapeSprite
         aPolygon.addSide(lineRight);
         aPolygon.addSide(lineBottom);
         aPolygon.addSide(lineLeft);
-        
+
         this.addLineArrow(lineTop, r, angle, aPolygon);
         this.addLineArrow(lineRight, r, angle, aPolygon);
         this.addLineArrow(lineBottom, r, angle, aPolygon);
         this.addLineArrow(lineLeft, r, angle, aPolygon);
-        
+
         return aPolygon;
     }
 
@@ -63,13 +62,4 @@ public class Rectangle extends ShapeSprite
         ArrayList<Line> lines = aLine.getArrowLines(l, angle);
         thePolygon.addSides(lines);
     }
-
-    @Override
-    public void onCollideWith(Sprite target)
-    {
-        super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
-        
-        
-    }
-    
 }
