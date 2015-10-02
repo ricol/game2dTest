@@ -23,6 +23,7 @@ public class BaseBall extends Sprite
         this.bCustomDrawing = true;
         this.bCollisionArbitrary = true;
         this.bEnablePhysics = true;
+        this.bKillWhenOutOfScene = true;
         
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
     }

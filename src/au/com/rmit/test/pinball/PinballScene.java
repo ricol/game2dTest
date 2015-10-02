@@ -22,13 +22,6 @@ public class PinballScene extends WallScene
 
         if (e.getButton() == MouseEvent.BUTTON3)
         {
-            MyBall MyBall = new MyBall();
-            MyBall.setCentreX(e.getX());
-            MyBall.setCentreY(e.getY());
-            addSprite(MyBall);
-
-        } else if (e.getButton() == MouseEvent.BUTTON1)
-        {
             float start_x = e.getX();
             float start_y = e.getY();
             float width = 30;
@@ -49,6 +42,13 @@ public class PinballScene extends WallScene
                 }
             }
 
+        } else if (e.getButton() == MouseEvent.BUTTON1)
+        {
+
+            MyBall MyBall = new MyBall();
+            MyBall.setCentreX(e.getX());
+            MyBall.setCentreY(e.getY());
+            addSprite(MyBall);
         }
     }
 }
