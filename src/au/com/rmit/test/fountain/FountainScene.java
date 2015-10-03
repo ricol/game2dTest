@@ -91,7 +91,7 @@ public class FountainScene extends Scene
             aObject.setGreen(greenValue);
             aObject.setBlue(blueValue);
             aObject.applyGravity(g);
-            aObject.enableGravity();
+            aObject.bEnableGravity = true;
 
 //            if (abs(theRandom.nextInt()) % 100 > 50)
 //            {

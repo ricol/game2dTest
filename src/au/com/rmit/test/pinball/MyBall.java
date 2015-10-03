@@ -18,10 +18,10 @@ public class MyBall extends BaseBall
     {
         this.setBlue(255);
         this.setRed(255);
-        this.setMass(5000);
+        this.setMass(500);
         this.setWidth(40);
         this.setHeight(this.getWidth());
-        this.setVelocity(new Vector(1000, 0));
+        this.setVelocity(new Vector(200, 0));
 
         this.setCollisionCategory(PinBallCommon.CATEGORY_MY_BALL);
     }

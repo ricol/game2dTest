@@ -27,7 +27,7 @@ public class ShapeSprite extends Sprite
         this.bCustomDrawing = true;
         this.bDrawShape = true;
         this.bEnablePhysics = true;
-        this.enableGravity();
+        this.bEnableGravity = true;
     }
 
     @Override
