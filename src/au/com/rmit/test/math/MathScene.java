@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
  */
 public class MathScene extends WallScene
 {
-
+    ObjectWithVectors theObject;
     Ball MyBall;
     Gravity g = new Gravity(0, 200);
 
@@ -41,6 +41,14 @@ public class MathScene extends WallScene
             }
 
             MyBall.rotateCounterClock();
+            
+            if (theObject == null)
+            {
+                theObject = new ObjectWithVectors();
+                theObject.setCentreX(e.getX());
+                theObject.setCentreY(e.getY());
+                addSprite(theObject);
+            }
         }
     }
 }
