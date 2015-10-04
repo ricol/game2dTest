@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.universe;
 
-import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.math.vector.Vector;
 import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import java.awt.Color;
@@ -76,7 +76,7 @@ public class Entity extends Sprite
             double G = 6.67384 * Math.pow(10, -11);
             double M = aObject.getMass();
             Vector DISTANCE = new Vector(delX, delY);
-            double distanceAbsolute = DISTANCE.getMagnitude();
+            double distanceAbsolute = DISTANCE.getTheMagnitude();
             double absoluteGravity = (G * M) / (distanceAbsolute * distanceAbsolute);
             Vector GRAVITY = DISTANCE.getTheUnitVector().multiplyNumber(absoluteGravity);
             GRAVITY_TOTAL = GRAVITY.addVector(GRAVITY_TOTAL);

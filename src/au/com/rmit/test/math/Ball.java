@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.math;
 
-import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.math.vector.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
 import java.awt.Graphics2D;

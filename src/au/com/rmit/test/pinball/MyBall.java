@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.pinball;
 
-import au.com.rmit.Game2dEngine.math.Vector;
+import au.com.rmit.Game2dEngine.math.vector.Vector;
 
 /**
  *
