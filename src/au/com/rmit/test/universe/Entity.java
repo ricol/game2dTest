@@ -31,6 +31,10 @@ public class Entity extends Sprite
         this.theColorOfTheShape = Color.green;
         this.bCollisionArbitrary = true;
         this.bCollisionDetect = true;
+        this.bDrawVelocityVector = true;
+        this.DrawVelocityBase = 0.1;
+        this.bDrawGravityVector = true;
+        this.DrawGravityBase = 0.05;
     }
 
     @Override

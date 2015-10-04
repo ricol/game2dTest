@@ -3,7 +3,8 @@ package au.com.rmit.test.gui;
 import au.com.rmit.Game2dEngine.director.Director;
 import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
-import au.com.rmit.test.realworld.RealWorldScene;
+import au.com.rmit.test.math.MathScene;
+import au.com.rmit.test.pinball.PinballScene;
 import au.com.rmit.test.universe.GravityDemoScene;
 import static java.lang.System.exit;
 
@@ -34,8 +35,9 @@ public class FrameMain extends javax.swing.JFrame
         panelGame = new javax.swing.JPanel();
         btnFountain = new javax.swing.JButton();
         btnFireworks = new javax.swing.JButton();
-        btnRealWorld = new javax.swing.JButton();
         btnGravity = new javax.swing.JButton();
+        btnPinball = new javax.swing.JButton();
+        btnMath = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -95,21 +97,30 @@ public class FrameMain extends javax.swing.JFrame
             }
         });
 
-        btnRealWorld.setText("Real World");
-        btnRealWorld.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                btnRealWorldActionPerformed(evt);
-            }
-        });
-
         btnGravity.setText("Universe");
         btnGravity.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 btnGravityActionPerformed(evt);
+            }
+        });
+
+        btnPinball.setText("Pinball");
+        btnPinball.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnPinballActionPerformed(evt);
+            }
+        });
+
+        btnMath.setText("Math");
+        btnMath.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnMathActionPerformed(evt);
             }
         });
 
@@ -124,10 +135,12 @@ public class FrameMain extends javax.swing.JFrame
                         .addComponent(btnPause)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClose)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
-                        .addComponent(btnGravity)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                        .addComponent(btnMath)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRealWorld)
+                        .addComponent(btnPinball)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGravity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFireworks)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,8 +159,9 @@ public class FrameMain extends javax.swing.JFrame
                     .addComponent(btnClose)
                     .addComponent(btnFountain)
                     .addComponent(btnFireworks)
-                    .addComponent(btnRealWorld)
-                    .addComponent(btnGravity))
+                    .addComponent(btnGravity)
+                    .addComponent(btnPinball)
+                    .addComponent(btnMath))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -189,23 +203,29 @@ public class FrameMain extends javax.swing.JFrame
         Director.getSharedInstance().showScene(new FireworksScene());
     }//GEN-LAST:event_btnFireworksActionPerformed
 
-    private void btnRealWorldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRealWorldActionPerformed
-    {//GEN-HEADEREND:event_btnRealWorldActionPerformed
-        Director.getSharedInstance().showScene(new RealWorldScene());
-    }//GEN-LAST:event_btnRealWorldActionPerformed
-
     private void btnGravityActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGravityActionPerformed
     {//GEN-HEADEREND:event_btnGravityActionPerformed
         Director.getSharedInstance().showScene(new GravityDemoScene());
     }//GEN-LAST:event_btnGravityActionPerformed
+
+    private void btnPinballActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPinballActionPerformed
+    {//GEN-HEADEREND:event_btnPinballActionPerformed
+        Director.getSharedInstance().showScene(new PinballScene());
+    }//GEN-LAST:event_btnPinballActionPerformed
+
+    private void btnMathActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMathActionPerformed
+    {//GEN-HEADEREND:event_btnMathActionPerformed
+        Director.getSharedInstance().showScene(new MathScene());
+    }//GEN-LAST:event_btnMathActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnFireworks;
     private javax.swing.JButton btnFountain;
     private javax.swing.JButton btnGravity;
+    private javax.swing.JButton btnMath;
     private javax.swing.JButton btnPause;
-    private javax.swing.JButton btnRealWorld;
+    private javax.swing.JButton btnPinball;
     private javax.swing.JPanel panelGame;
     // End of variables declaration//GEN-END:variables
 }

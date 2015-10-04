@@ -20,6 +20,6 @@ public class Planet extends Entity
         this.setGreen(abs(theRandom.nextInt()) % 255);
         this.setRed(abs(theRandom.nextInt()) % 255);
         this.setBlue(abs(theRandom.nextInt()) % 255);
-        this.enableGravity();
+        this.bEnableGravity = true;
     }
 }
