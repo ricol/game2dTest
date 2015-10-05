@@ -6,7 +6,7 @@
 package au.com.rmit.test.universe;
 
 import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.gui.TestCommon;
+import au.com.rmit.test.common.TestCommon;
 import au.com.rmit.test.scene.WallScene;
 import java.awt.event.MouseEvent;
 import static java.lang.Math.abs;

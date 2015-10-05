@@ -6,8 +6,8 @@
 package au.com.rmit.test.math;
 
 import au.com.rmit.Game2dEngine.math.vector.Vector;
-import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.gui.TestCommon;
+import au.com.rmit.test.common.BasicSprite;
+import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -15,7 +15,7 @@ import java.awt.Graphics2D;
  *
  * @author ricolwang
  */
-public class Ball extends Sprite
+public class Ball extends BasicSprite
 {
 
     public Ball()

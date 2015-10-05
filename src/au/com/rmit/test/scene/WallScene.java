@@ -7,7 +7,7 @@ package au.com.rmit.test.scene;
 
 import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.scene.Scene;
-import au.com.rmit.test.sprites.Wall;
+import au.com.rmit.test.common.Wall;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
