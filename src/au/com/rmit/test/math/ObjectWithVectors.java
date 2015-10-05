@@ -40,10 +40,6 @@ public class ObjectWithVectors extends Sprite
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
         this.bDrawVelocityVector = true;
         this.DrawVelocityBase = 0.3;
-
-        Vector aVector = new Vector(30, 30);
-        this.vectors.add(aVector);
-        this.vectors.addAll(aVector.getVectorsRotateByInClockwise(Math.PI / 6.0));
     }
 
     @Override

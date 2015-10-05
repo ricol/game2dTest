@@ -8,6 +8,7 @@ package au.com.rmit.test.math;
 import au.com.rmit.Game2dEngine.math.vector.Vector;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.gui.TestCommon;
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
@@ -24,6 +25,7 @@ public class Ball extends Sprite
         this.bEnablePhysics = true;
         this.bCustomDrawing = true;
         this.bDrawShape = true;
+        this.theColorOfTheShape = Color.orange;
         this.setRed(255);
         this.setWidth(50);
         this.setHeight(50);
