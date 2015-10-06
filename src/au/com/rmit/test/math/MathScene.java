@@ -30,7 +30,7 @@ public class MathScene extends WallScene
 //            if (MyBall == null)
 //                return;
 //
-//            MyBall.rotateClockwise();
+//            MyBall.rotateClockwise(Math.PI * 1.5);
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
 //            if (MyBall == null)
@@ -41,7 +41,7 @@ public class MathScene extends WallScene
 //                addSprite(MyBall);
 //            }
 //
-//            MyBall.rotateCounterClock();
+//            MyBall.rotateCounterClock(Math.PI * 1.5);
 //            
 //            if (theObject == null)
 //            {

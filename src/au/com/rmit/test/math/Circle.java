@@ -16,6 +16,7 @@ import java.awt.Graphics2D;
  */
 public class Circle extends BasicSprite
 {
+
     public Circle()
     {
         this.setWidth(1);
@@ -31,9 +32,9 @@ public class Circle extends BasicSprite
     public void onAddToLayer(Layer theLayer)
     {
         super.onAddToLayer(theLayer); //To change body of generated methods, choose Tools | Templates.
-        
+
         ExpandByAction aExpandAction = new ExpandByAction();
-        aExpandAction.expandBy(20, 0.5f);
+        aExpandAction.expandBy(20, 0.2f);
         this.addAction(aExpandAction);
         this.bDeadIfNoActions = true;
     }
@@ -43,5 +44,5 @@ public class Circle extends BasicSprite
     {
         super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

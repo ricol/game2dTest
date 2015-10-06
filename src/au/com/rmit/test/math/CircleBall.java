@@ -68,7 +68,7 @@ public class CircleBall extends BasicSprite
                 aCircleSprite.setCentreX(p.x);
                 aCircleSprite.setCentreY(p.y);
                 this.theScene.addSprite(aCircleSprite);
-                this.explode(5, (int)p.x, (int)p.y);
+//                this.explode(5, (int)p.x, (int)p.y);
             }
         }
     }

@@ -11,6 +11,7 @@ import au.com.rmit.test.common.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import static java.lang.Math.abs;
 import java.util.ArrayList;
 
 /**
@@ -33,10 +34,10 @@ public class ObjectWithVectors extends BasicSprite
         this.setWidth(50);
         this.setHeight(50);
         this.setMass(50);
-//        float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
-//        float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
-//        this.setVelocity(new Vector(vx, vy));
-        this.setVelocity(new Vector(200, 300));
+        float vx = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
+        float vy = (abs(theRandom.nextInt()) % 200 + 100) * (theRandom.nextBoolean() ? 1 : -1);
+        this.setVelocity(new Vector(vx, vy));
+//        this.setVelocity(new Vector(200, 300));
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
         this.bDrawVelocityVector = true;
         this.DrawVelocityBase = 0.3;

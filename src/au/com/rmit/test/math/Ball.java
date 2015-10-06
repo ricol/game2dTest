@@ -48,17 +48,17 @@ public class Ball extends BasicSprite
 //        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
 
-    public void rotateClockwise()
+    public void rotateClockwise(double angle)
     {
         Vector v = this.getVelocity();
-        Vector NewV = v.getVectorRotateByInClockwise(Math.PI / 6.0);
+        Vector NewV = v.getVectorRotateByInClockwise(angle);
         this.setVelocity(NewV);
     }
 
-    public void rotateCounterClock()
+    public void rotateCounterClock(double angle)
     {
         Vector v = this.getVelocity();
-        Vector NewV = v.getVectorRotateByInCounterClockwise(Math.PI / 6.0);
+        Vector NewV = v.getVectorRotateByInCounterClockwise(angle);
         this.setVelocity(NewV);
     }
 
