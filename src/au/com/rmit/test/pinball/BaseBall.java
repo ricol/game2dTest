@@ -6,7 +6,7 @@
 package au.com.rmit.test.pinball;
 
 import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.common.BasicSprite;
+import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Graphics2D;
 

@@ -7,7 +7,7 @@ package au.com.rmit.test.math;
 
 import au.com.rmit.Game2dEngine.action.ExpandByAction;
 import au.com.rmit.Game2dEngine.scene.Layer;
-import au.com.rmit.test.common.BasicSprite;
+import au.com.rmit.test.basicsprites.BasicSprite;
 import java.awt.Graphics2D;
 
 /**

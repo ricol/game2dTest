@@ -6,7 +6,7 @@
 package au.com.rmit.test.math;
 
 import au.com.rmit.Game2dEngine.math.vector.Vector;
-import au.com.rmit.test.common.BasicSprite;
+import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
 import java.awt.Graphics2D;

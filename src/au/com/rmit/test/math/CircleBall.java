@@ -10,7 +10,7 @@ import au.com.rmit.Game2dEngine.geometry.Point;
 import au.com.rmit.Game2dEngine.math.vector.Vector;
 import au.com.rmit.Game2dEngine.physics.collision.PhysicsCollisionProcess;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.common.BasicSprite;
+import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
 import java.awt.Graphics2D;

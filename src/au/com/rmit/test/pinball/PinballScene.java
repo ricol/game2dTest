@@ -6,7 +6,7 @@
 package au.com.rmit.test.pinball;
 
 import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
-import au.com.rmit.test.scene.WallScene;
+import au.com.rmit.test.basicscene.WallScene;
 import java.awt.event.MouseEvent;
 
 /**
