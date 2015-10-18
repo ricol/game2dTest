@@ -1,5 +1,6 @@
 package au.com.rmit.test.gui;
 
+import au.com.philology.common.JavaTheme;
 import au.com.rmit.Game2dEngine.director.Director;
 import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
@@ -7,6 +8,7 @@ import au.com.rmit.test.math.MathScene;
 import au.com.rmit.test.pinball.PinballScene;
 import au.com.rmit.test.universe.GravityDemoScene;
 import static java.lang.System.exit;
+import javax.swing.SwingUtilities;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,6 +25,18 @@ public class FrameMain extends javax.swing.JFrame
     public FrameMain()
     {
         initComponents();
+    }
+
+    public static void main(String[] args)
+    {
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                JavaTheme.setLookAndFeel(JavaTheme.LOOKANDFEEL_MOTIF);
+                new FrameMain().setVisible(true);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -66,7 +80,7 @@ public class FrameMain extends javax.swing.JFrame
             }
         });
 
-        panelGame.setBackground(new java.awt.Color(0, 102, 51));
+        panelGame.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
         panelGame.setLayout(panelGameLayout);
@@ -135,7 +149,7 @@ public class FrameMain extends javax.swing.JFrame
                         .addComponent(btnPause)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClose)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
                         .addComponent(btnMath)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPinball)

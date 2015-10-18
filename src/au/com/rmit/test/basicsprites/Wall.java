@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package au.com.rmit.test.sprites;
+package au.com.rmit.test.basicsprites;
 
 import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
-import au.com.rmit.test.gui.TestCommon;
+import au.com.rmit.test.common.TestCommon;
 
 /**
  *

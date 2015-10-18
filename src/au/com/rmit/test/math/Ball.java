@@ -5,16 +5,17 @@
  */
 package au.com.rmit.test.math;
 
-import au.com.rmit.Game2dEngine.math.Vector;
-import au.com.rmit.Game2dEngine.sprite.Sprite;
-import au.com.rmit.test.gui.TestCommon;
+import au.com.rmit.Game2dEngine.math.vector.Vector;
+import au.com.rmit.test.basicsprites.BasicSprite;
+import au.com.rmit.test.common.TestCommon;
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
  *
  * @author ricolwang
  */
-public class Ball extends Sprite
+public class Ball extends BasicSprite
 {
 
     public Ball()
@@ -24,6 +25,7 @@ public class Ball extends Sprite
         this.bEnablePhysics = true;
         this.bCustomDrawing = true;
         this.bDrawShape = true;
+        this.theColorOfTheShape = Color.orange;
         this.setRed(255);
         this.setWidth(50);
         this.setHeight(50);
@@ -46,17 +48,17 @@ public class Ball extends Sprite
 //        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
 
-    public void rotateClockwise()
+    public void rotateClockwise(double angle)
     {
         Vector v = this.getVelocity();
-        Vector NewV = v.getVectorRotateByInClockwise(Math.PI / 6.0);
+        Vector NewV = v.getVectorRotateByInClockwise(angle);
         this.setVelocity(NewV);
     }
 
-    public void rotateCounterClock()
+    public void rotateCounterClock(double angle)
     {
         Vector v = this.getVelocity();
-        Vector NewV = v.getVectorRotateByInCounterClockwise(Math.PI / 6.0);
+        Vector NewV = v.getVectorRotateByInCounterClockwise(angle);
         this.setVelocity(NewV);
     }
 

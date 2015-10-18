@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package au.com.rmit.test.scene;
+package au.com.rmit.test.basicscene;
 
 import au.com.rmit.Game2dEngine.physics.sprites.WallSprite;
 import au.com.rmit.Game2dEngine.scene.Scene;
-import au.com.rmit.test.sprites.Wall;
+import au.com.rmit.test.basicsprites.Wall;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
