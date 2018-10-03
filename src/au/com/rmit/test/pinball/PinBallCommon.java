@@ -11,6 +11,7 @@ package au.com.rmit.test.pinball;
  */
 public class PinBallCommon
 {
+
     public static int CATEGORY_MY_BALL = 1;
     public static int CATEGORY_TARGET_BALL = 2;
 }

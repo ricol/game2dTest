@@ -15,13 +15,14 @@ import java.awt.event.MouseEvent;
  */
 public class PinballScene extends WallScene
 {
+
     Gravity g = new Gravity(0, 200);
-    
+
     @Override
     public void mousePressed(MouseEvent e)
     {
         super.mousePressed(e);
-        
+
         if (e.getButton() == MouseEvent.BUTTON3)
         {
             float start_x = e.getX();
