@@ -5,8 +5,8 @@
  */
 package au.com.rmit.test.math;
 
-import au.com.rmit.Game2dEngine.geometry.Line;
-import au.com.rmit.Game2dEngine.math.vector.Vector;
+import au.com.rmit.math.geometry.Line;
+import au.com.rmit.math.vector.Vector;
 import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
@@ -65,7 +65,9 @@ public class ObjectWithVectors extends BasicSprite
         }
 
         for (Line line : allLines)
+        {
             theGraphics2D.drawLine((int) line.start.x, (int) line.start.y, (int) line.end.x, (int) line.end.y);
+        }
     }
 
 }

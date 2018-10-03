@@ -5,9 +5,9 @@
  */
 package au.com.rmit.test.math;
 
-import au.com.rmit.Game2dEngine.geometry.CircleShape;
-import au.com.rmit.Game2dEngine.geometry.Point;
-import au.com.rmit.Game2dEngine.math.vector.Vector;
+import au.com.rmit.math.geometry.CircleShape;
+import au.com.rmit.math.geometry.Point;
+import au.com.rmit.math.vector.Vector;
 import au.com.rmit.Game2dEngine.physics.collision.PhysicsCollisionProcess;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.basicsprites.BasicSprite;
@@ -23,6 +23,7 @@ import java.util.ArrayList;
  */
 public class CircleBall extends BasicSprite
 {
+
     public CircleBall()
     {
         this.bCollisionArbitrary = true;
@@ -56,11 +57,11 @@ public class CircleBall extends BasicSprite
     public void onCollideWith(Sprite target)
     {
         super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
-        
+
         if (this.getTheShape() instanceof CircleShape && target.getTheShape() instanceof CircleShape)
         {
-            CircleShape A = (CircleShape)this.getTheShape();
-            CircleShape B = (CircleShape)target.getTheShape();
+            CircleShape A = (CircleShape) this.getTheShape();
+            CircleShape B = (CircleShape) target.getTheShape();
             ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
             for (Point p : points)
             {
@@ -72,5 +73,5 @@ public class CircleBall extends BasicSprite
             }
         }
     }
-    
+
 }

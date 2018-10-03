@@ -5,7 +5,7 @@
  */
 package au.com.rmit.test.universe;
 
-import au.com.rmit.Game2dEngine.math.vector.Vector;
+import au.com.rmit.math.vector.Vector;
 import au.com.rmit.Game2dEngine.physics.gravity.Gravity;
 import au.com.rmit.Game2dEngine.sprite.Sprite;
 import java.awt.Color;
@@ -64,7 +64,9 @@ public class Entity extends Sprite
         for (Entity aObject : otherObjects)
         {
             if (aObject == null)
+            {
                 continue;
+            }
 
             if (aObject.equals(this))
             {

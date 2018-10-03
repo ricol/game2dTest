@@ -1,6 +1,6 @@
 package au.com.rmit.test.gui;
 
-import au.com.philology.common.JavaTheme;
+import au.com.rmit.common.JavaTheme;
 import au.com.rmit.Game2dEngine.director.Director;
 import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
@@ -197,9 +197,12 @@ public class FrameMain extends javax.swing.JFrame
         }
 
         if (Director.getSharedInstance().currentScene.isScenePaused())
+        {
             this.btnPause.setText("Continue");
-        else
+        } else
+        {
             this.btnPause.setText("Pause");
+        }
     }//GEN-LAST:event_btnPauseActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed

@@ -13,10 +13,11 @@ import static java.lang.Math.abs;
  */
 public class Planet extends Entity
 {
+
     public Planet()
     {
         super();
-        
+
         this.setGreen(abs(theRandom.nextInt()) % 255);
         this.setRed(abs(theRandom.nextInt()) % 255);
         this.setBlue(abs(theRandom.nextInt()) % 255);
