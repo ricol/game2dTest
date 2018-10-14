@@ -5,12 +5,12 @@
  */
 package au.com.rmit.test.math;
 
+import au.com.rmit.Game2dEngine.painter.interfaces.IEngineGraphics;
 import au.com.rmit.math.geometry.Line;
 import au.com.rmit.math.vector.Vector;
 import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
-import java.awt.Graphics2D;
 import static java.lang.Math.abs;
 import java.util.ArrayList;
 
@@ -44,11 +44,11 @@ public class ObjectWithVectors extends BasicSprite
     }
 
     @Override
-    public void onCustomDrawInTheScene(Graphics2D theGraphics2D)
+    public void onCustomDrawInTheScene(IEngineGraphics theEngineGraphics)
     {
-        super.onCustomDrawInTheScene(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
+        super.onCustomDrawInTheScene(theEngineGraphics); //To change body of generated methods, choose Tools | Templates.
 
-        theGraphics2D.setColor(Color.green);
+        theEngineGraphics.setColor(Color.green);
 
         ArrayList<Line> allLines = new ArrayList<>();
 
@@ -66,7 +66,7 @@ public class ObjectWithVectors extends BasicSprite
 
         for (Line line : allLines)
         {
-            theGraphics2D.drawLine((int) line.start.x, (int) line.start.y, (int) line.end.x, (int) line.end.y);
+            theEngineGraphics.drawLine((int) line.start.x, (int) line.start.y, (int) line.end.x, (int) line.end.y);
         }
     }
 

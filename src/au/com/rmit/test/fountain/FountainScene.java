@@ -28,7 +28,7 @@ public class FountainScene extends Scene
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            createParticles(10, (int) (size().width * (2.0 / 4.0)), (int) (size().height * (3.5 / 4.0)), g);
+            createParticles(10, (int) (getWidth() * (2.0 / 4.0)), (int) (getHeight() * (3.5 / 4.0)), g);
         }
     });
 

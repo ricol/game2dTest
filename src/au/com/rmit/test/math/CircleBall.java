@@ -5,15 +5,15 @@
  */
 package au.com.rmit.test.math;
 
+import au.com.rmit.Game2dEngine.painter.interfaces.IEngineGraphics;
+import au.com.rmit.Game2dEngine.physics.collision.PhysicsCollisionProcess;
+import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.math.geometry.CircleShape;
 import au.com.rmit.math.geometry.Point;
 import au.com.rmit.math.vector.Vector;
-import au.com.rmit.Game2dEngine.physics.collision.PhysicsCollisionProcess;
-import au.com.rmit.Game2dEngine.sprite.Sprite;
 import au.com.rmit.test.basicsprites.BasicSprite;
 import au.com.rmit.test.common.TestCommon;
 import java.awt.Color;
-import java.awt.Graphics2D;
 import static java.lang.Math.abs;
 import java.util.ArrayList;
 
@@ -45,12 +45,12 @@ public class CircleBall extends BasicSprite
     }
 
     @Override
-    public void onCustomDraw(Graphics2D theGraphics2D)
+    public void onCustomDraw(IEngineGraphics theEngineGraphics)
     {
-        super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
+        super.onCustomDraw(theEngineGraphics); //To change body of generated methods, choose Tools | Templates.
 
-//        theGraphics2D.setColor(this.getColor());
-//        theGraphics2D.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
+//        theEngineGraphics.setColor(this.getColor());
+//        theEngineGraphics.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
 
     @Override

@@ -6,9 +6,9 @@
 package au.com.rmit.test.math;
 
 import au.com.rmit.Game2dEngine.action.ExpandByAction;
+import au.com.rmit.Game2dEngine.painter.interfaces.IEngineGraphics;
 import au.com.rmit.Game2dEngine.scene.Layer;
 import au.com.rmit.test.basicsprites.BasicSprite;
-import java.awt.Graphics2D;
 
 /**
  *
@@ -40,9 +40,9 @@ public class Circle extends BasicSprite
     }
 
     @Override
-    public void onCustomDraw(Graphics2D theGraphics2D)
+    public void onCustomDraw(IEngineGraphics theEngineGraphics)
     {
-        super.onCustomDraw(theGraphics2D); //To change body of generated methods, choose Tools | Templates.
+        super.onCustomDraw(theEngineGraphics); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
