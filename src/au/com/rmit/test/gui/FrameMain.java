@@ -1,7 +1,7 @@
 package au.com.rmit.test.gui;
 
-import au.com.rmit.common.JavaTheme;
 import au.com.rmit.Game2dEngine.director.Director;
+import au.com.rmit.common.JavaTheme;
 import au.com.rmit.test.fireworks.FireworksScene;
 import au.com.rmit.test.fountain.FountainScene;
 import au.com.rmit.test.math.MathScene;
@@ -44,14 +44,17 @@ public class FrameMain extends javax.swing.JFrame
     private void initComponents()
     {
 
-        btnPause = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         btnClose = new javax.swing.JButton();
-        panelGame = new javax.swing.JPanel();
+        btnPause = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         btnFountain = new javax.swing.JButton();
         btnFireworks = new javax.swing.JButton();
         btnGravity = new javax.swing.JButton();
         btnPinball = new javax.swing.JButton();
         btnMath = new javax.swing.JButton();
+        panelGame = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -59,15 +62,6 @@ public class FrameMain extends javax.swing.JFrame
             public void windowOpened(java.awt.event.WindowEvent evt)
             {
                 formWindowOpened(evt);
-            }
-        });
-
-        btnPause.setText("Pause");
-        btnPause.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                btnPauseActionPerformed(evt);
             }
         });
 
@@ -79,19 +73,19 @@ public class FrameMain extends javax.swing.JFrame
                 btnCloseActionPerformed(evt);
             }
         });
+        jPanel3.add(btnClose);
 
-        panelGame.setBackground(new java.awt.Color(0, 153, 153));
+        btnPause.setText("Pause");
+        btnPause.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnPauseActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnPause);
 
-        javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
-        panelGame.setLayout(panelGameLayout);
-        panelGameLayout.setHorizontalGroup(
-            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelGameLayout.setVerticalGroup(
-            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
-        );
+        jPanel4.add(jPanel3);
 
         btnFountain.setText("Fountain");
         btnFountain.addActionListener(new java.awt.event.ActionListener()
@@ -101,6 +95,7 @@ public class FrameMain extends javax.swing.JFrame
                 btnFountainActionPerformed(evt);
             }
         });
+        jPanel2.add(btnFountain);
 
         btnFireworks.setText("Fireworks");
         btnFireworks.addActionListener(new java.awt.event.ActionListener()
@@ -110,6 +105,7 @@ public class FrameMain extends javax.swing.JFrame
                 btnFireworksActionPerformed(evt);
             }
         });
+        jPanel2.add(btnFireworks);
 
         btnGravity.setText("Universe");
         btnGravity.addActionListener(new java.awt.event.ActionListener()
@@ -119,6 +115,7 @@ public class FrameMain extends javax.swing.JFrame
                 btnGravityActionPerformed(evt);
             }
         });
+        jPanel2.add(btnGravity);
 
         btnPinball.setText("Pinball");
         btnPinball.addActionListener(new java.awt.event.ActionListener()
@@ -128,6 +125,7 @@ public class FrameMain extends javax.swing.JFrame
                 btnPinballActionPerformed(evt);
             }
         });
+        jPanel2.add(btnPinball);
 
         btnMath.setText("Math");
         btnMath.addActionListener(new java.awt.event.ActionListener()
@@ -137,49 +135,24 @@ public class FrameMain extends javax.swing.JFrame
                 btnMathActionPerformed(evt);
             }
         });
+        jPanel2.add(btnMath);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnPause)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClose)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
-                        .addComponent(btnMath)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPinball)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGravity)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFireworks)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFountain))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(panelGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+        jPanel4.add(jPanel2);
+
+        getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
+        panelGame.setLayout(panelGameLayout);
+        panelGameLayout.setHorizontalGroup(
+            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 863, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPause)
-                    .addComponent(btnClose)
-                    .addComponent(btnFountain)
-                    .addComponent(btnFireworks)
-                    .addComponent(btnGravity)
-                    .addComponent(btnPinball)
-                    .addComponent(btnMath))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        panelGameLayout.setVerticalGroup(
+            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 522, Short.MAX_VALUE)
         );
+
+        getContentPane().add(panelGame, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -243,6 +216,9 @@ public class FrameMain extends javax.swing.JFrame
     private javax.swing.JButton btnMath;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPinball;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel panelGame;
     // End of variables declaration//GEN-END:variables
 }
