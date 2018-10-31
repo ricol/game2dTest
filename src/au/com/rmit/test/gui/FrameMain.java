@@ -141,6 +141,8 @@ public class FrameMain extends javax.swing.JFrame
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
+        panelGame.setBackground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
         panelGame.setLayout(panelGameLayout);
         panelGameLayout.setHorizontalGroup(
