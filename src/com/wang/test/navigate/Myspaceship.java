@@ -149,7 +149,14 @@ public class Myspaceship extends MovingObject implements ActionListener
             this.setVelocityX(0);
         }
         
-        if (this.getCentreY() > this.theScene.getHeight() - this.getHeight() / 2.0 || this.getCentreY() < this.getHeight() / 2.0)
+        if (this.getCentreY() > this.theScene.getHeight() - this.getHeight() / 2.0)
+        {
+            this.restoreY();
+            this.setVelocityX(0);
+            this.setVelocityY(0);
+        }
+        
+        if (this.getCentreY() < this.getHeight() / 2.0)
         {
             this.restoreY();
             this.setVelocityY(0);
