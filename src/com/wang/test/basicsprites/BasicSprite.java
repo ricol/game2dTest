@@ -7,7 +7,7 @@ package com.wang.test.basicsprites;
 
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.Game2dEngine.sprite.Sprite;
-import com.wang.test.pinball.BaseBall;
+import com.wang.test.navigate.MovingObject;
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
@@ -18,14 +18,24 @@ import static java.lang.Math.pow;
 public class BasicSprite extends Sprite
 {
 
+    public BasicSprite(String imagename)
+    {
+        super(imagename);
+    }
+    
+    public BasicSprite()
+    {
+        super();
+    }
+
     protected void explode(int total, int x, int y)
     {
         int number = abs(theRandom.nextInt()) % 10 + total;
 
         for (int i = 0; i < number; i++)
         {
-            double tmpX = pow(-1, theRandom.nextInt() % 10) * theRandom.nextFloat() * BaseBall.SPEED_EXPLODE_PARTICLE;
-            double tmpY = pow(-1, theRandom.nextInt() % 10) * theRandom.nextFloat() * BaseBall.SPEED_EXPLODE_PARTICLE;
+            double tmpX = pow(-1, theRandom.nextInt() % 10) * theRandom.nextFloat() * MovingObject.SPEED_EXPLODE_PARTICLE;
+            double tmpY = pow(-1, theRandom.nextInt() % 10) * theRandom.nextFloat() * MovingObject.SPEED_EXPLODE_PARTICLE;
 
             ExpodeParticle aFire = new ExpodeParticle();
             aFire.setX(x);

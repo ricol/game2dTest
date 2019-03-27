@@ -3,24 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wang.test.pinball;
+package com.wang.test.navigate;
+
+import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 
 /**
  *
  * @author ricolwang
  */
-public class TargetBall extends BaseBall
+public class Meteorite extends MovingObject
 {
 
-    public TargetBall()
+    public Meteorite(String imagename)
     {
+        super(imagename);
         this.setRed(theRandom.nextInt(255));
         this.setGreen(theRandom.nextInt(255));
         this.setBlue(theRandom.nextInt(255));
         this.setWidth(20);
         this.setHeight(this.getWidth());
         this.setMass(this.getWidth());
-
-        this.addTargetCollisionCategory(PinBallCommon.CATEGORY_TARGET_BALL);
     }
+
+    @Override
+    public void onCustomDraw(IEngineGraphics theEngineGraphics)
+    {
+        super.onCustomDraw(theEngineGraphics); //To change body of generated methods, choose Tools | Templates.
+
+    }
+
 }

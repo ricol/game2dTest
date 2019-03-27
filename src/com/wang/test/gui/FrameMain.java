@@ -6,7 +6,7 @@ import com.wang.common.JavaTheme;
 import com.wang.test.fireworks.FireworksScene;
 import com.wang.test.fountain.FountainScene;
 import com.wang.test.math.MathScene;
-import com.wang.test.pinball.PinballScene;
+import com.wang.test.navigate.NavigateScene;
 import com.wang.test.universe.GravityDemoScene;
 import static java.lang.System.exit;
 import javax.swing.SwingUtilities;
@@ -114,7 +114,7 @@ public class FrameMain extends javax.swing.JFrame
         });
         menuGame.add(menuMath);
 
-        menuPinball.setText("Pinball");
+        menuPinball.setText("Rocket");
         menuPinball.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -193,7 +193,7 @@ public class FrameMain extends javax.swing.JFrame
 
     private void menuPinballActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_menuPinballActionPerformed
     {//GEN-HEADEREND:event_menuPinballActionPerformed
-        Director.getSharedInstance().showScene(new PinballScene());
+        Director.getSharedInstance().showScene(new NavigateScene());
     }//GEN-LAST:event_menuPinballActionPerformed
 
     private void menuUniverseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_menuUniverseActionPerformed
