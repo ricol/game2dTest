@@ -41,12 +41,10 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
         {
             //right button
             ship.rightEngine(true);
-            ship.middleEngine(true);
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
             //left button
             ship.leftEngine(true);
-            ship.middleEngine(true);
         }
     }
 
@@ -57,12 +55,10 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
         {
             //right button
             ship.rightEngine(false);
-            ship.middleEngine(false);
         } else if (e.getButton() == MouseEvent.BUTTON1)
         {
             //left button
             ship.leftEngine(false);
-            ship.middleEngine(false);
         }
     }
 
@@ -108,7 +104,7 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
         }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_RIGHT)
         {
             ship.rightEngine(true);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP)
+        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP || e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_SPACE)
         {
             ship.middleEngine(true);
         }
@@ -123,7 +119,7 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
         }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_RIGHT)
         {
             ship.rightEngine(false);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP)
+        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP || e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_SPACE)
         {
             ship.middleEngine(false);
         }

@@ -20,12 +20,19 @@ import javax.swing.Timer;
 public class Myspaceship extends MovingObject implements ActionListener
 {
 
-    Timer theTimerForEngineLeft = new Timer(10, this);
-    Timer theTimerForEngineRight = new Timer(10, this);
-    Timer theTimerForEngineMiddle = new Timer(10, this);
-    double leftAccelaration = 0;
-    double rightAccelaration = 0;
-    double topAccelaration = 0;
+    private final Timer theTimerForEngineLeft = new Timer(10, this);
+    private final Timer theTimerForEngineRight = new Timer(10, this);
+    private final Timer theTimerForEngineMiddle = new Timer(10, this);
+    private double leftAccelaration = 0;
+    private double leftTopAccelaration = 0;
+    private double rightAccelaration = 0;
+    private double rightTopAccelaration = 0;
+    private double topAccelaration = 0;
+    private final double TOP_ACCELARATION = 700;
+    private final double LEFT_ACCELARATION = 100;
+    private final double LEFT_TOP_ACCELARATION = 650;
+    private final double RIGHT_ACCELARATION = 100;
+    private final double RIGHT_TOP_ACCELARATION = 650;
 
     public Myspaceship(String imagename)
     {
@@ -43,8 +50,8 @@ public class Myspaceship extends MovingObject implements ActionListener
     
     public void middleEngine(boolean start)
     {
-        topAccelaration = start ? -700 : 0;
-        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration));
+        topAccelaration = start ? -TOP_ACCELARATION : 0;
+        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration));
         if (start)
             this.theTimerForEngineMiddle.start();
         else
@@ -53,8 +60,9 @@ public class Myspaceship extends MovingObject implements ActionListener
 
     public void leftEngine(boolean start)
     {
-        rightAccelaration = start ? 100 : 0;
-        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration));
+        rightAccelaration = start ? LEFT_ACCELARATION : 0;
+        rightTopAccelaration = start ? -RIGHT_TOP_ACCELARATION : 0;
+        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration));
         if (start)
             this.theTimerForEngineLeft.start();
         else
@@ -63,8 +71,9 @@ public class Myspaceship extends MovingObject implements ActionListener
 
     public void rightEngine(boolean start)
     {
-        leftAccelaration = start ? -100 : 0;
-        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration));
+        leftAccelaration = start ? -RIGHT_ACCELARATION : 0;
+        leftTopAccelaration = start ? -LEFT_TOP_ACCELARATION : 0;
+        this.setAccelaration(new Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration));
         if (start)
             this.theTimerForEngineRight.start();
         else
