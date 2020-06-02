@@ -17,7 +17,6 @@ import java.awt.Color;
  */
 public class Ball extends BasicSprite
 {
-    
 
     public Ball()
     {

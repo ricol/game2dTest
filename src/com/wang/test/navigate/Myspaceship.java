@@ -47,7 +47,7 @@ public class Myspaceship extends MovingObject implements ActionListener
         Myspaceship ship = new Myspaceship("resource/rocket.png");
         return ship;
     }
-    
+
     public void middleEngine(boolean start)
     {
         topAccelaration = start ? -TOP_ACCELARATION : 0;
@@ -119,7 +119,7 @@ public class Myspaceship extends MovingObject implements ActionListener
     {
         engine(this.getWidth() / 8.0);
     }
-    
+
     private void engineMiddle()
     {
         engine(0);
@@ -142,7 +142,7 @@ public class Myspaceship extends MovingObject implements ActionListener
         {
             engineRight();
         }
-        
+
         if (e.getSource().equals(this.theTimerForEngineMiddle))
         {
             engineMiddle();
@@ -152,25 +152,25 @@ public class Myspaceship extends MovingObject implements ActionListener
     @Override
     public void didUpdateState()
     {
-        if (this.getCentreX() < this.getWidth() / 2.0 || this.getCentreX() > this.theScene.getWidth() - this.getWidth() / 2.0) 
+        if (this.getCentreX() < this.getWidth() / 2.0 || this.getCentreX() > this.theScene.getWidth() - this.getWidth() / 2.0)
         {
             this.restoreX();
             this.setVelocityX(0);
         }
-        
+
         if (this.getCentreY() > this.theScene.getHeight() - this.getHeight() / 2.0)
         {
             this.restoreY();
             this.setVelocityX(0);
             this.setVelocityY(0);
         }
-        
+
         if (this.getCentreY() < this.getHeight() / 2.0)
         {
             this.restoreY();
             this.setVelocityY(0);
         }
-        
-        super.didUpdateState(); 
+
+        super.didUpdateState();
     }
 }

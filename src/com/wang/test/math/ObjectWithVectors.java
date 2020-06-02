@@ -22,7 +22,7 @@ public class ObjectWithVectors extends BasicSprite
 {
 
     ArrayList<Vector> vectors = new ArrayList<>();
-    
+
     public ObjectWithVectors()
     {
         this.bCollisionArbitrary = true;

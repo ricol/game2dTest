@@ -72,7 +72,7 @@ public class Galaxy
     {
         return (abs(theRandom.nextInt()) * 1.0f) / Integer.MAX_VALUE;
     }
-    
+
     private double getSymbol()
     {
         return theRandom.nextBoolean() ? 1 : -1;

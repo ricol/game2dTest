@@ -71,7 +71,7 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
         ship.setCentreY(this.getHeight() / 2.0);
         ship.applyGravity(g);
         this.addSprite(ship);
-        
+
         this.getComponent().requestFocus();
     }
 
@@ -98,13 +98,13 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_LEFT)
+        if (e.getKeyCode() == KeyEvent.VK_LEFT)
         {
             ship.leftEngine(true);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_RIGHT)
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
             ship.rightEngine(true);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP || e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_SPACE)
+        } else if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE)
         {
             ship.middleEngine(true);
         }
@@ -113,13 +113,13 @@ public class NavigateScene extends Scene implements MouseListener, KeyListener
     @Override
     public void keyReleased(KeyEvent e)
     {
-        if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_LEFT)
+        if (e.getKeyCode() == KeyEvent.VK_LEFT)
         {
             ship.leftEngine(false);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_RIGHT)
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
             ship.rightEngine(false);
-        }else if (e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_UP || e.getKeyCode() == com.sun.glass.events.KeyEvent.VK_SPACE)
+        } else if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE)
         {
             ship.middleEngine(false);
         }

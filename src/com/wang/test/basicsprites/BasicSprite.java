@@ -22,7 +22,7 @@ public class BasicSprite extends Sprite
     {
         super(imagename);
     }
-    
+
     public BasicSprite()
     {
         super();

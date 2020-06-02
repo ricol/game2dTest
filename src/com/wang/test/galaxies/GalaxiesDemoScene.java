@@ -24,7 +24,7 @@ public class GalaxiesDemoScene extends WallScene
         if (e.getButton() == MouseEvent.BUTTON1)
         {
             new Galaxy(this, e.getX(), e.getY());
-        }else if (e.getButton() == MouseEvent.BUTTON3)
+        } else if (e.getButton() == MouseEvent.BUTTON3)
         {
             for (Sprite s : this.getAllSprites())
             {
