@@ -6,8 +6,8 @@
 package com.wang.test.universe;
 
 import com.wang.Game2dEngine.sprite.Sprite;
-import com.wang.test.common.TestCommon;
 import com.wang.test.basicscene.WallScene;
+import com.wang.test.common.TestCommon;
 import java.awt.event.MouseEvent;
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
@@ -64,7 +64,7 @@ public class GravityDemoScene extends WallScene
             Planet aPlanet = new Planet();
             double mass = ((abs(theRandom.nextInt()) * 1.0f) / Integer.MAX_VALUE) * MaxMassOfPlanet;
             aPlanet.setMass(mass);
-            aPlanet.setWidth((mass / (MaxMassOfPlanet * 1.0f)) * MaxWidthPlanet);
+            aPlanet.setWidth(8);
             aPlanet.setHeight(aPlanet.getWidth());
             aPlanet.setCentreX(e.getX());
             aPlanet.setCentreY(e.getY());

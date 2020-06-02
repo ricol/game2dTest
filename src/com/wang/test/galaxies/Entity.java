@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wang.test.universe;
+package com.wang.test.galaxies;
 
 import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 import com.wang.Game2dEngine.physics.gravity.Gravity;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.math.vector.Vector;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,8 +20,6 @@ import java.util.Set;
  */
 public class Entity extends Sprite
 {
-
-    Set<Entity> otherObjects = new HashSet<>();
 
     public Entity()
     {
@@ -61,6 +60,7 @@ public class Entity extends Sprite
     {
         Vector GRAVITY_TOTAL = new Vector(0, 0);
 
+        Set<Entity> otherObjects = this.getAllEntities();
         for (Entity aObject : otherObjects)
         {
             if (aObject == null)
@@ -88,24 +88,18 @@ public class Entity extends Sprite
         this.applyGravity(g);
     }
 
-    synchronized public void addEntity(Entity aEntity)
+    public Set<Entity> getAllEntities()
     {
-        this.otherObjects.add(aEntity);
-    }
+        Set<Entity> allEntities = new HashSet<>();
+        ArrayList<Sprite> all = theScene.getAllSprites();
+        for (Sprite aSprite : all)
+        {
+            if (aSprite instanceof Entity)
+            {
+                allEntities.add((Entity) aSprite);
+            }
+        }
 
-    synchronized public void removeEntity(Entity aEntity)
-    {
-        this.otherObjects.remove(aEntity);
+        return allEntities;
     }
-
-    synchronized public void addEntities(Set<Entity> all)
-    {
-        this.otherObjects.addAll(all);
-    }
-
-    synchronized public void removeEntities(Set<Entity> all)
-    {
-        this.otherObjects.removeAll(all);
-    }
-
 }

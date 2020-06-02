@@ -10,6 +10,7 @@ import com.wang.Game2dEngine.scene.Scene;
 import com.wang.common.JavaTheme;
 import com.wang.test.fireworks.FireworksScene;
 import com.wang.test.fountain.FountainScene;
+import com.wang.test.galaxies.GalaxiesDemoScene;
 import com.wang.test.math.MathScene;
 import com.wang.test.navigate.NavigateScene;
 import com.wang.test.universe.GravityDemoScene;
@@ -33,7 +34,7 @@ public class javaMain
 {
 
     JMenu menuGame, menuOption;
-    JMenuItem menuFountain, menuFireworks, menuMath, menuRocket, menuUniverse, menuSeperator, menuExit, menuPause;
+    JMenuItem menuFountain, menuFireworks, menuMath, menuRocket, menuUniverse, menuGalaxies, menuSeperator, menuExit, menuPause;
     JPanel panelGame = new JPanel();
 
     public javaMain()
@@ -52,7 +53,7 @@ public class javaMain
                 Director.getSharedInstance().showScene(new FountainScene());
             }
         });
-        
+
         menuFireworks = new JMenuItem("Fireforks");
         menuFireworks.addActionListener(new ActionListener()
         {
@@ -62,7 +63,7 @@ public class javaMain
                 Director.getSharedInstance().showScene(new FireworksScene());
             }
         });
-        
+
         menuMath = new JMenuItem("Math");
         menuMath.addActionListener(new ActionListener()
         {
@@ -72,7 +73,7 @@ public class javaMain
                 Director.getSharedInstance().showScene(new MathScene());
             }
         });
-        
+
         menuRocket = new JMenuItem("Rocket");
         menuRocket.addActionListener(new ActionListener()
         {
@@ -82,7 +83,7 @@ public class javaMain
                 Director.getSharedInstance().showScene(new NavigateScene());
             }
         });
-        
+
         menuUniverse = new JMenuItem("Universe");
         menuUniverse.addActionListener(new ActionListener()
         {
@@ -92,9 +93,19 @@ public class javaMain
                 Director.getSharedInstance().showScene(new GravityDemoScene());
             }
         });
-        
+
+        menuGalaxies = new JMenuItem("Galaxies");
+        menuGalaxies.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                Director.getSharedInstance().showScene(new GalaxiesDemoScene());
+            }
+        });
+
         menuSeperator = new JMenuItem("-");
-        
+
         menuExit = new JMenuItem("Exit");
         menuExit.addActionListener(new ActionListener()
         {
@@ -110,6 +121,7 @@ public class javaMain
         menuGame.add(menuMath);
         menuGame.add(menuRocket);
         menuGame.add(menuUniverse);
+        menuGame.add(menuGalaxies);
         menuGame.add(menuSeperator);
         menuGame.add(menuExit);
 
@@ -136,7 +148,7 @@ public class javaMain
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         f.addWindowListener(new WindowListener()
         {
             @Override
