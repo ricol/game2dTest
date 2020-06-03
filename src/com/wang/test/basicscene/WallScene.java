@@ -6,18 +6,16 @@
 package com.wang.test.basicscene;
 
 import com.wang.Game2dEngine.physics.sprites.WallSprite;
-import com.wang.Game2dEngine.scene.Scene;
 import com.wang.test.basicsprites.Wall;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  *
  * @author ricolwang
  */
-public class WallScene extends Scene implements MouseListener
+public class WallScene extends NormalScene
 {
 
     public Wall theWallTop;
@@ -65,7 +63,7 @@ public class WallScene extends Scene implements MouseListener
 
     public WallScene()
     {
-        this.enableCollisionDetect();
+        super();
 
         this.addComponentListener(new ComponentAdapter()
         {
@@ -75,13 +73,6 @@ public class WallScene extends Scene implements MouseListener
                 resizeWalls();
             }
         });
-
-        this.addMouseListener(this);
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e)
-    {
     }
 
     @Override
@@ -123,20 +114,4 @@ public class WallScene extends Scene implements MouseListener
         resizeWalls();
 
     }
-
-    @Override
-    public void mouseReleased(MouseEvent e)
-    {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e)
-    {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e)
-    {
-    }
-
 }
