@@ -10,8 +10,6 @@ import com.wang.Game2dEngine.physics.gravity.Gravity;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.math.vector.Vector;
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -20,6 +18,8 @@ import java.util.Set;
  */
 public class Entity extends Sprite
 {
+
+    private Set<Entity> allOtherObjects = null;
 
     public Entity()
     {
@@ -56,12 +56,11 @@ public class Entity extends Sprite
         }
     }
 
-    synchronized void adjustGravity()
+    void adjustGravity()
     {
         Vector GRAVITY_TOTAL = new Vector(0, 0);
-
-        Set<Entity> otherObjects = this.getAllEntities();
-        for (Entity aObject : otherObjects)
+        Set<Entity> all = getAllOtherObjects();
+        for (Entity aObject : all)
         {
             if (aObject == null)
             {
@@ -75,7 +74,7 @@ public class Entity extends Sprite
 
             double delX = aObject.getCentreX() - this.getCentreX();
             double delY = aObject.getCentreY() - this.getCentreY();
-            double G = 6.67384 * Math.pow(10, -11);
+            double G = 6.67384 * 1e-11;
             double M = aObject.getMass();
             Vector DISTANCE = new Vector(delX, delY);
             double distanceAbsolute = DISTANCE.getTheMagnitude();
@@ -88,18 +87,10 @@ public class Entity extends Sprite
         this.applyGravity(g);
     }
 
-    public Set<Entity> getAllEntities()
+    public Set<Entity> getAllOtherObjects()
     {
-        Set<Entity> allEntities = new HashSet<>();
-        ArrayList<Sprite> all = theScene.getAllSprites();
-        for (Sprite aSprite : all)
-        {
-            if (aSprite instanceof Entity)
-            {
-                allEntities.add((Entity) aSprite);
-            }
-        }
-
-        return allEntities;
+        if (allOtherObjects == null)
+            allOtherObjects = ((GalaxiesDemoScene) theScene).getAllEntities();
+        return allOtherObjects;
     }
 }

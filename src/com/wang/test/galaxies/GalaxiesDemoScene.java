@@ -8,6 +8,9 @@ package com.wang.test.galaxies;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.test.basicscene.WallScene;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -32,5 +35,20 @@ public class GalaxiesDemoScene extends WallScene
             }
         }
     }
+    
+    public Set<Entity> getAllEntities()
+    {
+        Set<Entity> allEntities = new HashSet<>();
+        ArrayList<Sprite> all = this.getAllSprites();
+        for (Sprite aSprite : all)
+        {
+            if (aSprite instanceof Entity)
+            {
+                allEntities.add((Entity) aSprite);
+            }
+        }
 
+        return allEntities;
+    }
+    
 }

@@ -9,8 +9,8 @@ import com.wang.Game2dEngine.scene.Scene;
 import com.wang.math.vector.Vector;
 import com.wang.test.common.TestCommon;
 import static java.lang.Math.abs;
-import static java.lang.Math.pow;
 import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -21,15 +21,18 @@ public class Galaxy
 
     private Scene theScene;
 
-    double MassOfStar = 10.0f * pow(10, 17);
+    double MassOfStar = 1e17;
     protected Random theRandom = new Random();
 
     public Galaxy(Scene scene, double x, double y)
     {
         super();
         this.theScene = scene;
-        this.createStar(x, y);
-        this.createPlanets(x, y);
+        synchronized (scene)
+        {
+            this.createStar(x, y);
+            this.createPlanets(x, y);
+        }
     }
 
     private void createPlanets(double x, double y)
@@ -43,11 +46,11 @@ public class Galaxy
             aPlanet.setMass(mass);
             aPlanet.setWidth(8);
             aPlanet.setHeight(aPlanet.getWidth());
-            aPlanet.setCentreX((x + getPercentage() * 100));
-            aPlanet.setCentreY((y + getPercentage() * 100));
-            aPlanet.setVelocityY(600 + getPercentage() * 20);
+            aPlanet.setCentreX((x + getPercentage() * 1e2 + 1e2 / 2.0));
+            aPlanet.setCentreY(y);
+            aPlanet.setVelocityY(1e2 + getPercentage() * 1e2 * 1.5);
             aPlanet.setLayer(2);
-            theScene.addSprite(aPlanet);
+            this.addSprite(aPlanet);
         }
     }
 
@@ -59,13 +62,13 @@ public class Galaxy
         aStar.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
         aStar.bCollisionArbitrary = true;
         aStar.setMass(MassOfStar);
-        aStar.setWidth(10);
+        aStar.setWidth(20);
         aStar.setHeight(aStar.getWidth());
         aStar.setCentreX(x);
         aStar.setCentreY(y);
         aStar.setLayer(1);
-        aStar.setVelocity(new Vector(getSymbol() * getPercentage() * 50, getSymbol() * getPercentage() * 50));
-        theScene.addSprite(aStar);
+        aStar.setVelocity(new Vector(getSymbol() * getPercentage() * 1e2 / 1.5, getSymbol() * getPercentage() * 1e2 / 1.5));
+        this.addSprite(aStar);
     }
 
     private double getPercentage()
@@ -76,5 +79,15 @@ public class Galaxy
     private double getSymbol()
     {
         return theRandom.nextBoolean() ? 1 : -1;
+    }
+
+    private void addSprite(Entity aEntity)
+    {
+        Set<Entity> allOtherEntity = ((GalaxiesDemoScene) theScene).getAllEntities();
+        for (Entity entity : allOtherEntity)
+        {
+            entity.getAllOtherObjects().add(aEntity);
+        }
+        theScene.addSprite(aEntity);
     }
 }
