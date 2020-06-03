@@ -28,7 +28,7 @@ public class Galaxy
     {
         super();
         this.theScene = scene;
-        synchronized (scene)
+        synchronized (scene.theSynObject)
         {
             this.createStar(x, y);
             this.createPlanets(x, y);
