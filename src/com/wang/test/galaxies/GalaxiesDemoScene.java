@@ -19,13 +19,6 @@ import java.util.Set;
 public class GalaxiesDemoScene extends NormalScene
 {
 
-    public GalaxiesDemoScene()
-    {
-        super();
-        this.setFps(100);
-        this.setModelFps(100);
-    }
-
     public Set<Entity> getAllEntities()
     {
         Set<Entity> allEntities = new HashSet<>();
