@@ -28,11 +28,8 @@ public class Galaxy
     {
         super();
         this.theScene = scene;
-        synchronized (scene.theSynObject)
-        {
-            this.createStar(x, y);
-            this.createPlanets(x, y);
-        }
+        this.createStar(x, y);
+        this.createPlanets(x, y);
     }
 
     private void createPlanets(double x, double y)
