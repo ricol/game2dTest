@@ -5,10 +5,10 @@
  */
 package com.wang.test.math;
 
+import com.wang.Game2dEngine.Shape.ECircleShape;
 import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 import com.wang.Game2dEngine.physics.collision.PhysicsCollisionProcess;
 import com.wang.Game2dEngine.sprite.Sprite;
-import com.wang.math.geometry.CircleShape;
 import com.wang.math.geometry.Point;
 import com.wang.math.vector.Vector;
 import com.wang.test.basicsprites.BasicSprite;
@@ -58,10 +58,10 @@ public class CircleBall extends BasicSprite
     {
         super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
 
-        if (this.getTheShape() instanceof CircleShape && target.getTheShape() instanceof CircleShape)
+        if (this.getTheShape() instanceof ECircleShape && target.getTheShape() instanceof ECircleShape)
         {
-            CircleShape A = (CircleShape) this.getTheShape();
-            CircleShape B = (CircleShape) target.getTheShape();
+            ECircleShape A = (ECircleShape) this.getTheShape();
+            ECircleShape B = (ECircleShape) target.getTheShape();
             ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
             for (Point p : points)
             {
