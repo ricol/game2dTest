@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wang.test.math;
+package com.wang.test.collision;
 
 /**
  *
  * @author ricolwang
  */
-public class MathCommon
+public class CollisionCommon
 {
 
 }

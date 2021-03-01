@@ -8,10 +8,10 @@ package com.wang.test.gui;
 import com.wang.Game2dEngine.director.Director;
 import com.wang.Game2dEngine.scene.Scene;
 import com.wang.common.JavaTheme;
+import com.wang.test.collision.CollisionScene;
 import com.wang.test.fireworks.FireworksScene;
 import com.wang.test.fountain.FountainScene;
 import com.wang.test.galaxies.GalaxiesDemoScene;
-import com.wang.test.math.MathScene;
 import com.wang.test.navigate.NavigateScene;
 import com.wang.test.universe.GravityDemoScene;
 import java.awt.event.ActionEvent;
@@ -34,7 +34,7 @@ public class javaMain
 {
 
     JMenu menuGame, menuOption;
-    JMenuItem menuFountain, menuFireworks, menuMath, menuRocket, menuUniverse, menuGalaxies, menuSeperator, menuExit, menuPause;
+    JMenuItem menuFountain, menuFireworks, menuCollision, menuRocket, menuUniverse, menuGalaxies, menuSeperator, menuExit, menuPause;
     JPanel panelGame = new JPanel();
 
     public javaMain()
@@ -64,13 +64,13 @@ public class javaMain
             }
         });
 
-        menuMath = new JMenuItem("Math");
-        menuMath.addActionListener(new ActionListener()
+        menuCollision = new JMenuItem("Collision");
+        menuCollision.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                Director.getSharedInstance().showScene(new MathScene());
+                Director.getSharedInstance().showScene(new CollisionScene());
             }
         });
 
@@ -118,7 +118,7 @@ public class javaMain
 
         menuGame.add(menuFountain);
         menuGame.add(menuFireworks);
-        menuGame.add(menuMath);
+        menuGame.add(menuCollision);
         menuGame.add(menuRocket);
         menuGame.add(menuUniverse);
         menuGame.add(menuGalaxies);

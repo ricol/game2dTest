@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wang.test.math;
+package com.wang.test.collision;
 
 import com.wang.Game2dEngine.Shape.ECircleShape;
 import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
