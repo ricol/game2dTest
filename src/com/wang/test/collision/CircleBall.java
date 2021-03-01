@@ -80,25 +80,25 @@ public class CircleBall extends BasicSprite
         if (this.getX() >= right.getX() - this.getWidth()) this.setX(right.getX() - this.getWidth());
     }
 
-//    @Override
-//    public void onCollideWith(Sprite target)
-//    {
-//        super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
-//
-//        if (this.getTheShape() instanceof ECircleShape && target.getTheShape() instanceof ECircleShape)
-//        {
-//            ECircleShape A = (ECircleShape) this.getTheShape();
-//            ECircleShape B = (ECircleShape) target.getTheShape();
-//            ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
-//            for (Point p : points)
-//            {
-//                Circle aCircleSprite = new Circle();
-//                aCircleSprite.setCentreX(p.x);
-//                aCircleSprite.setCentreY(p.y);
-//                this.theScene.addSprite(aCircleSprite);
-////                this.explode(5, (int)p.x, (int)p.y);
-//            }
-//        }
-//    }
+    @Override
+    public void onCollideWith(Sprite target)
+    {
+        super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
+
+        if (this.getTheShape() instanceof ECircleShape && target.getTheShape() instanceof ECircleShape)
+        {
+            ECircleShape A = (ECircleShape) this.getTheShape();
+            ECircleShape B = (ECircleShape) target.getTheShape();
+            ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
+            for (Point p : points)
+            {
+                Circle aCircleSprite = new Circle();
+                aCircleSprite.setCentreX(p.x);
+                aCircleSprite.setCentreY(p.y);
+                this.theScene.addSprite(aCircleSprite);
+//                this.explode(5, (int)p.x, (int)p.y);
+            }
+        }
+    }
 
 }
