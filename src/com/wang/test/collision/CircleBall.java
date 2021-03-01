@@ -24,7 +24,13 @@ import java.util.ArrayList;
 public class CircleBall extends BasicSprite
 {
 
-    public CircleBall()
+    private int t = 1;
+    private int MASS_RANGE = 100;
+    private int MASS_BASE = 20;
+    private int VELOCITY_RANGE = 200;
+    private int VELOCITY_BASE = 20;
+
+    public CircleBall(int x, int y)
     {
         this.bCollisionArbitrary = true;
         this.bCollisionDetect = true;
@@ -33,15 +39,18 @@ public class CircleBall extends BasicSprite
         this.bDrawShape = true;
         this.theColorOfTheShape = Color.orange;
         this.setRed(255);
-        this.setWidth(100);
-        this.setHeight(100);
-        this.setMass(50);
-        float vx = (abs(theRandom.nextInt()) % 10 + 10) * (theRandom.nextBoolean() ? 1 : -1);
-        float vy = (abs(theRandom.nextInt()) % 10 + 10) * (theRandom.nextBoolean() ? 1 : -1);
+        int mass = theRandom.nextInt() % MASS_RANGE + MASS_BASE;
+        this.setMass(mass);
+        this.setWidth(mass * t);
+        this.setHeight(mass * t);
+        float vx = (abs(theRandom.nextInt()) % VELOCITY_RANGE + VELOCITY_BASE) * (theRandom.nextBoolean() ? 1 : -1);
+        float vy = (abs(theRandom.nextInt()) % VELOCITY_RANGE + VELOCITY_BASE) * (theRandom.nextBoolean() ? 1 : -1);
         this.setVelocity(new Vector(vx, vy));
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
 //        this.bDrawVelocityVector = true;
 //        this.DrawVelocityBase = 0.3;
+        this.setCentreX(x);
+        this.setCentreY(y);
     }
 
     @Override

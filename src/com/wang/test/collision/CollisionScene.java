@@ -51,9 +51,7 @@ public class CollisionScene extends WallScene
 //                addSprite(theObject);
 //            }
 
-            CircleBall aBall = new CircleBall();
-            aBall.setCentreX(e.getX());
-            aBall.setCentreY(e.getY());
+            CircleBall aBall = new CircleBall(e.getX(), e.getY());
             addSprite(aBall);
         }
     }
