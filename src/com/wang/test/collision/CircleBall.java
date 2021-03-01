@@ -11,7 +11,9 @@ import com.wang.Game2dEngine.physics.collision.PhysicsCollisionProcess;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.math.geometry.Point;
 import com.wang.math.vector.Vector;
+import com.wang.test.basicscene.WallScene;
 import com.wang.test.basicsprites.BasicSprite;
+import com.wang.test.basicsprites.Wall;
 import com.wang.test.common.TestCommon;
 import java.awt.Color;
 import static java.lang.Math.abs;
@@ -25,8 +27,8 @@ public class CircleBall extends BasicSprite
 {
 
     private int t = 1;
-    private int MASS_RANGE = 100;
-    private int MASS_BASE = 20;
+    private int MASS_RANGE = 50;
+    private int MASS_BASE = 50;
     private int VELOCITY_RANGE = 200;
     private int VELOCITY_BASE = 20;
 
@@ -39,7 +41,7 @@ public class CircleBall extends BasicSprite
         this.bDrawShape = true;
         this.theColorOfTheShape = Color.orange;
         this.setRed(255);
-        int mass = theRandom.nextInt() % MASS_RANGE + MASS_BASE;
+        int mass = abs(theRandom.nextInt()) % MASS_RANGE + MASS_BASE;
         this.setMass(mass);
         this.setWidth(mass * t);
         this.setHeight(mass * t);
@@ -59,28 +61,44 @@ public class CircleBall extends BasicSprite
         super.onCustomDraw(theEngineGraphics); //To change body of generated methods, choose Tools | Templates.
 
 //        theEngineGraphics.setColor(this.getColor());
-//        theEngineGraphics.fillArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
+//        theEngineGraphics.drawArc(0, 0, (int) this.getWidth(), (int) this.getHeight(), 0, 360);
     }
 
     @Override
-    public void onCollideWith(Sprite target)
+    public void didUpdateState()
     {
-        super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
+        super.didUpdateState();
 
-        if (this.getTheShape() instanceof ECircleShape && target.getTheShape() instanceof ECircleShape)
-        {
-            ECircleShape A = (ECircleShape) this.getTheShape();
-            ECircleShape B = (ECircleShape) target.getTheShape();
-            ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
-            for (Point p : points)
-            {
-                Circle aCircleSprite = new Circle();
-                aCircleSprite.setCentreX(p.x);
-                aCircleSprite.setCentreY(p.y);
-                this.theScene.addSprite(aCircleSprite);
-//                this.explode(5, (int)p.x, (int)p.y);
-            }
-        }
+        WallScene theWallScene = (WallScene) this.theScene;
+        Wall top = theWallScene.theWallTop;
+        Wall left = theWallScene.theWallLeft;
+        Wall right = theWallScene.theWallRight;
+        Wall bottom = theWallScene.theWallBottom;
+        if (this.getY() <= top.getY() + top.getHeight()) this.setY(top.getY() + top.getHeight());
+        if (this.getY() >= bottom.getY() - this.getHeight()) this.setY(bottom.getY() - this.getHeight());
+        if (this.getX() <= left.getX() + left.getWidth()) this.setX(left.getX() + left.getWidth());
+        if (this.getX() >= right.getX() - this.getWidth()) this.setX(right.getX() - this.getWidth());
     }
+
+//    @Override
+//    public void onCollideWith(Sprite target)
+//    {
+//        super.onCollideWith(target); //To change body of generated methods, choose Tools | Templates.
+//
+//        if (this.getTheShape() instanceof ECircleShape && target.getTheShape() instanceof ECircleShape)
+//        {
+//            ECircleShape A = (ECircleShape) this.getTheShape();
+//            ECircleShape B = (ECircleShape) target.getTheShape();
+//            ArrayList<Point> points = PhysicsCollisionProcess.getCollisionPointsForCircle(A, B);
+//            for (Point p : points)
+//            {
+//                Circle aCircleSprite = new Circle();
+//                aCircleSprite.setCentreX(p.x);
+//                aCircleSprite.setCentreY(p.y);
+//                this.theScene.addSprite(aCircleSprite);
+////                this.explode(5, (int)p.x, (int)p.y);
+//            }
+//        }
+//    }
 
 }
