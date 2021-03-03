@@ -6,11 +6,7 @@
 package com.wang.test.collision;
 
 import com.wang.Game2dEngine.physics.gravity.Gravity;
-import com.wang.common.JavaTheme;
 import com.wang.test.basicscene.WallScene;
-import com.wang.test.gui.javaMain;
-
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 /**
