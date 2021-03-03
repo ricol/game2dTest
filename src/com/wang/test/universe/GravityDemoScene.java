@@ -8,15 +8,16 @@ package com.wang.test.universe;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.test.basicscene.WallScene;
 import com.wang.test.common.TestCommon;
+
 import java.awt.event.MouseEvent;
-import static java.lang.Math.abs;
-import static java.lang.Math.pow;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.pow;
+
 /**
- *
  * @author ricolwang
  */
 public class GravityDemoScene extends WallScene

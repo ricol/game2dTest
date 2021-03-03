@@ -6,7 +6,6 @@
 package com.wang.test.common;
 
 /**
- *
  * @author Philology
  */
 public class TestCommon

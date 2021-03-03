@@ -6,11 +6,11 @@
 package com.wang.test.basicscene;
 
 import com.wang.Game2dEngine.scene.Scene;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
  * @author ricolwang
  */
 public class NormalScene extends Scene implements MouseListener

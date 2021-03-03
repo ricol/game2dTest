@@ -8,7 +8,6 @@ package com.wang.test.navigate;
 import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 
 /**
- *
  * @author ricolwang
  */
 public class Meteorite extends MovingObject

@@ -9,7 +9,6 @@ import com.wang.Game2dEngine.physics.sprites.WallSprite;
 import com.wang.test.common.TestCommon;
 
 /**
- *
  * @author ricolwang
  */
 public class Wall extends WallSprite

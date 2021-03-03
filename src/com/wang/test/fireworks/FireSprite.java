@@ -8,7 +8,6 @@ package com.wang.test.fireworks;
 import com.wang.Game2dEngine.sprite.Sprite;
 
 /**
- *
  * @author Philology
  */
 public class FireSprite extends Sprite

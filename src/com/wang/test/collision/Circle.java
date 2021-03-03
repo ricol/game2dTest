@@ -11,7 +11,6 @@ import com.wang.Game2dEngine.scene.Layer;
 import com.wang.test.basicsprites.BasicSprite;
 
 /**
- *
  * @author ricolwang
  */
 public class Circle extends BasicSprite

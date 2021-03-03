@@ -6,7 +6,6 @@
 package com.wang.test.fireworks;
 
 /**
- *
  * @author ricolwang
  */
 public class SmallFirework extends Firework

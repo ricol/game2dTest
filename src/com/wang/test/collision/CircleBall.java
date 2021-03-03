@@ -15,12 +15,13 @@ import com.wang.test.basicscene.WallScene;
 import com.wang.test.basicsprites.BasicSprite;
 import com.wang.test.basicsprites.Wall;
 import com.wang.test.common.TestCommon;
-import java.awt.Color;
-import static java.lang.Math.abs;
+
+import java.awt.*;
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 /**
- *
  * @author ricolwang
  */
 public class CircleBall extends BasicSprite
@@ -49,8 +50,8 @@ public class CircleBall extends BasicSprite
         float vy = (abs(theRandom.nextInt()) % VELOCITY_RANGE + VELOCITY_BASE) * (theRandom.nextBoolean() ? 1 : -1);
         this.setVelocity(new Vector(vx, vy));
         this.addTargetCollisionCategory(TestCommon.CATEGORY_WALL);
-//        this.bDrawVelocityVector = true;
-//        this.DrawVelocityBase = 0.3;
+        this.bDrawVelocityVector = true;
+        this.DrawVelocityBase = 0.3;
         this.setCentreX(x);
         this.setCentreY(y);
     }

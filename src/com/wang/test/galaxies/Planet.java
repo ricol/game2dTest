@@ -5,11 +5,9 @@
  */
 package com.wang.test.galaxies;
 
-import com.wang.test.universe.*;
 import static java.lang.Math.abs;
 
 /**
- *
  * @author ricolwang
  */
 public class Planet extends Entity

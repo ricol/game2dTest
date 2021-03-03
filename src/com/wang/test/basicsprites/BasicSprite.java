@@ -8,11 +8,11 @@ package com.wang.test.basicsprites;
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.test.navigate.MovingObject;
+
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
 /**
- *
  * @author ricolwang
  */
 public class BasicSprite extends Sprite

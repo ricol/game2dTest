@@ -7,14 +7,15 @@ package com.wang.test.navigate;
 
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.math.vector.Vector;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
-import javax.swing.Timer;
 
 /**
- *
  * @author ricolwang
  */
 public class Myspaceship extends MovingObject implements ActionListener

@@ -9,7 +9,6 @@ import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 import com.wang.Game2dEngine.sprite.Sprite;
 
 /**
- *
  * @author ricolwang
  */
 public class ExpodeParticle extends Sprite

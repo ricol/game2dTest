@@ -9,7 +9,6 @@ import com.wang.Game2dEngine.action.Action;
 import com.wang.Game2dEngine.scene.Layer;
 
 /**
- *
  * @author ricolwang
  */
 public class TestSpaceship extends Spaceship

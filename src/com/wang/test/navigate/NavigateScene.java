@@ -7,13 +7,13 @@ package com.wang.test.navigate;
 
 import com.wang.Game2dEngine.physics.gravity.Gravity;
 import com.wang.Game2dEngine.scene.Scene;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
  * @author ricolwang
  */
 public class NavigateScene extends Scene implements MouseListener, KeyListener

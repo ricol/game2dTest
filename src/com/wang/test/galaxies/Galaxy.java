@@ -8,12 +8,13 @@ package com.wang.test.galaxies;
 import com.wang.Game2dEngine.scene.Scene;
 import com.wang.math.vector.Vector;
 import com.wang.test.common.TestCommon;
-import static java.lang.Math.abs;
+
 import java.util.Random;
 import java.util.Set;
 
+import static java.lang.Math.abs;
+
 /**
- *
  * @author ricolwang
  */
 public class Galaxy

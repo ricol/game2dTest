@@ -5,17 +5,18 @@
  */
 package com.wang.test.spaceship;
 
-import com.wang.test.fireworks.FireSprite;
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.Game2dEngine.sprite.Sprite;
+import com.wang.test.fireworks.FireSprite;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
-import javax.swing.Timer;
 
 /**
- *
  * @author ricolwang
  */
 public class PropelEngine extends Sprite implements ActionListener

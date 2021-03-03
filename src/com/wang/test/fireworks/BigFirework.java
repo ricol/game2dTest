@@ -9,7 +9,6 @@ import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
 /**
- *
  * @author ricolwang
  */
 public class BigFirework extends Firework

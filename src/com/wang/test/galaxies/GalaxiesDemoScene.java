@@ -7,13 +7,13 @@ package com.wang.test.galaxies;
 
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.test.basicscene.NormalScene;
+
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
  * @author ricolwang
  */
 public class GalaxiesDemoScene extends NormalScene

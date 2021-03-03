@@ -7,13 +7,13 @@ package com.wang.test.spaceship;
 
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.Game2dEngine.sprite.Sprite;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /**
- *
  * @author ricolwang
  */
 public class Spaceship extends Sprite

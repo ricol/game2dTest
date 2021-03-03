@@ -8,16 +8,14 @@ package com.wang.test.universe;
 import com.wang.Game2dEngine.action.AlphaToAction;
 import com.wang.Game2dEngine.scene.Layer;
 import com.wang.Game2dEngine.sprite.Sprite;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.lang.Math.abs;
-import static java.lang.Math.cos;
-import static java.lang.Math.pow;
-import static java.lang.Math.sin;
-import javax.swing.Timer;
+
+import static java.lang.Math.*;
 
 /**
- *
  * @author Philology
  */
 public class Star extends Entity implements ActionListener

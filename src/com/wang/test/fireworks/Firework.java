@@ -7,10 +7,10 @@ package com.wang.test.fireworks;
 
 import com.wang.Game2dEngine.action.RotateByAction;
 import com.wang.Game2dEngine.sprite.Sprite;
+
 import static java.lang.Math.abs;
 
 /**
- *
  * @author ricolwang
  */
 public abstract class Firework extends Sprite

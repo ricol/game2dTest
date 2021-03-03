@@ -14,20 +14,16 @@ import com.wang.test.fountain.FountainScene;
 import com.wang.test.galaxies.GalaxiesDemoScene;
 import com.wang.test.navigate.NavigateScene;
 import com.wang.test.universe.GravityDemoScene;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+
 import static java.lang.System.exit;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
- *
  * @author ricolwang
  */
 public class javaMain

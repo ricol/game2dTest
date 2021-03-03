@@ -7,12 +7,12 @@ package com.wang.test.basicscene;
 
 import com.wang.Game2dEngine.physics.sprites.WallSprite;
 import com.wang.test.basicsprites.Wall;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 
 /**
- *
  * @author ricolwang
  */
 public class WallScene extends NormalScene

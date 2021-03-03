@@ -9,12 +9,12 @@ import com.wang.Game2dEngine.painter.interfaces.IEngineGraphics;
 import com.wang.Game2dEngine.physics.gravity.Gravity;
 import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.math.vector.Vector;
-import java.awt.Color;
+
+import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
  * @author ricolwang
  */
 public class Entity extends Sprite

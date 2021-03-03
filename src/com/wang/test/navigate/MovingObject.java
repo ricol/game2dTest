@@ -10,7 +10,6 @@ import com.wang.Game2dEngine.sprite.Sprite;
 import com.wang.test.basicsprites.BasicSprite;
 
 /**
- *
  * @author ricolwang
  */
 public class MovingObject extends BasicSprite
