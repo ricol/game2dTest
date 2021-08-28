@@ -42,20 +42,20 @@ class BigFirework : Firework
                 if (Math.abs(theRandom.nextInt() % 10) > 8)
                 {
                     aObject = BigFirework()
-                    aObject.setX(x)
-                    aObject.setY(y)
-                    aObject.setVelocityX(tmpVelocityX)
-                    aObject.setVelocityY(tmpVelocityY)
+                    aObject.x = x
+                    aObject.y = y
+                    aObject.velocityX = tmpVelocityX
+                    aObject.velocityY = tmpVelocityY
                     aObject.setLifeTime(1.0)
                     aObject.blastTime = Math.abs(theRandom.nextInt()) % 100 / 100.0 + 0.5
                     aObject.subFireworks = 10
                 } else
                 {
                     aObject = SmallFirework()
-                    aObject.setX(x)
-                    aObject.setY(y)
-                    aObject.setVelocityX(tmpVelocityX)
-                    aObject.setVelocityY(tmpVelocityY)
+                    aObject.x = x
+                    aObject.y = y
+                    aObject.velocityX = tmpVelocityX
+                    aObject.velocityY = tmpVelocityY
                     aObject.setLifeTime(Math.abs(theRandom.nextInt()) % 5 + 1.toDouble())
                 }
                 aObject.applyGravity(this.gravity)
@@ -65,7 +65,7 @@ class BigFirework : Firework
                 aObject.red = redValue
                 aObject.green = greenValue
                 aObject.blue = blueValue
-                theScene.addSprite(aObject)
+                theScene!!.addSprite(aObject)
             }
             setShouldDie()
         }

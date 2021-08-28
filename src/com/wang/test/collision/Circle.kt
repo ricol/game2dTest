@@ -15,7 +15,7 @@ import com.wang.test.basicsprites.BasicSprite
  */
 class Circle : BasicSprite()
 {
-    override fun onAddToLayer(theLayer: Layer)
+    override fun onAddToLayer(theLayer: Layer?)
     {
         super.onAddToLayer(theLayer) //To change body of generated methods, choose Tools | Templates.
         val aExpandAction = ExpandByAction()

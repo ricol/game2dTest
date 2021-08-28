@@ -42,7 +42,7 @@ open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
     fun adjustGravity()
     {
-        var GRAVITY_TOTAL = Vector(0, 0)
+        var GRAVITY_TOTAL = Vector(0.0, 0.0)
         val all: Set<Entity?>? = allOtherObjects
         for (aObject in all!!)
         {

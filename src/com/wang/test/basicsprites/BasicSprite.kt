@@ -45,7 +45,7 @@ open class BasicSprite : Sprite
             {
                 break
             }
-            theScene.addSprite(aFire)
+            theScene!!.addSprite(aFire)
         }
     }
 }

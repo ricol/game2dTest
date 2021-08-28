@@ -53,17 +53,17 @@ class javaMain
         val mb = JMenuBar()
         menuGame = JMenu("Game")
         menuFountain = JMenuItem("Fountan")
-        menuFountain.addActionListener { Director.getSharedInstance().showScene(FountainScene()) }
+        menuFountain.addActionListener { Director.sharedInstance.showScene(FountainScene()) }
         menuFireworks = JMenuItem("Fireforks")
-        menuFireworks.addActionListener { Director.getSharedInstance().showScene(FireworksScene()) }
+        menuFireworks.addActionListener { Director.sharedInstance.showScene(FireworksScene()) }
         menuCollision = JMenuItem("Collision")
-        menuCollision.addActionListener { Director.getSharedInstance().showScene(CollisionScene()) }
+        menuCollision.addActionListener { Director.sharedInstance.showScene(CollisionScene()) }
         menuRocket = JMenuItem("Rocket")
-        menuRocket.addActionListener { Director.getSharedInstance().showScene(NavigateScene()) }
+        menuRocket.addActionListener { Director.sharedInstance.showScene(NavigateScene()) }
         menuUniverse = JMenuItem("Universe")
-        menuUniverse.addActionListener { Director.getSharedInstance().showScene(GravityDemoScene()) }
+        menuUniverse.addActionListener { Director.sharedInstance.showScene(GravityDemoScene()) }
         menuGalaxies = JMenuItem("Galaxies")
-        menuGalaxies.addActionListener { Director.getSharedInstance().showScene(GalaxiesDemoScene()) }
+        menuGalaxies.addActionListener { Director.sharedInstance.showScene(GalaxiesDemoScene()) }
         menuSeperator = JMenuItem("-")
         menuExit = JMenuItem("Exit")
         menuExit.addActionListener { System.exit(0) }
@@ -78,7 +78,7 @@ class javaMain
         menuOption = JMenu("Option")
         menuPause = JMenuItem("Pause")
         menuPause.addActionListener {
-            val theScene = Director.getSharedInstance().currentScene
+            val theScene = Director.sharedInstance.currentScene
             theScene?.pause()
         }
         menuOption.add(menuPause)
@@ -94,7 +94,7 @@ class javaMain
         {
             override fun windowOpened(e: WindowEvent)
             {
-                Director.getSharedInstance().setParent(panelGame)
+                Director.sharedInstance.setParent(panelGame)
             }
 
             override fun windowClosing(e: WindowEvent)

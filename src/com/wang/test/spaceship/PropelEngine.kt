@@ -52,7 +52,7 @@ class PropelEngine : Sprite(), ActionListener
             {
                 break
             }
-            parent.addAChild(aFire)
+            parent!!.addAChild(aFire)
         }
     }
 

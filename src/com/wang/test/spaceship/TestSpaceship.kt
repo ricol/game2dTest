@@ -19,14 +19,14 @@ class TestSpaceship : Spaceship("my-spaceship.png")
         super.onDead() //To change body of generated methods, choose Tools | Templates.
     }
 
-    override fun onAddToLayer(theLayer: Layer)
+    override fun onAddToLayer(theLayer: Layer?)
     {
         super.onAddToLayer(theLayer) //To change body of generated methods, choose Tools | Templates.
         theEngine.centreX = width / 2
         theEngine.centreY = height
     }
 
-    override fun onActionComplete(aAction: Action)
+    override fun onActionComplete(aAction: Action?)
     {
     }
 

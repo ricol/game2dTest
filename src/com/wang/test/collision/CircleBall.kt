@@ -60,7 +60,7 @@ class CircleBall(x: Int, y: Int) : BasicSprite()
                 val aCircleSprite = Circle()
                 aCircleSprite.centreX = p.x
                 aCircleSprite.centreY = p.y
-                theScene.addSprite(aCircleSprite)
+                theScene!!.addSprite(aCircleSprite)
                 //                this.explode(5, (int)p.x, (int)p.y);
             }
         }

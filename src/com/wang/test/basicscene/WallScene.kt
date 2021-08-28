@@ -62,28 +62,28 @@ open class WallScene : NormalScene()
             theWallTop = Wall()
             theWallTop!!.blue = 255
             theWallTop!!.wallType = WallSprite.WALLTYPE.TOP
-            addSprite(theWallTop)
+            addSprite(theWallTop!!)
         }
         if (theWallBottom == null)
         {
             theWallBottom = Wall()
             theWallBottom!!.blue = 255
             theWallBottom!!.wallType = WallSprite.WALLTYPE.BOTTOM
-            addSprite(theWallBottom)
+            addSprite(theWallBottom!!)
         }
         if (theWallLeft == null)
         {
             theWallLeft = Wall()
             theWallLeft!!.blue = 255
             theWallLeft!!.wallType = WallSprite.WALLTYPE.LEFT
-            addSprite(theWallLeft)
+            addSprite(theWallLeft!!)
         }
         if (theWallRight == null)
         {
             theWallRight = Wall()
             theWallRight!!.blue = 255
             theWallRight!!.wallType = WallSprite.WALLTYPE.RIGHT
-            addSprite(theWallRight)
+            addSprite(theWallRight!!)
         }
         resizeWalls()
     }

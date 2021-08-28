@@ -32,7 +32,7 @@ class Myspaceship(imagename: String?) : MovingObject(imagename), ActionListener
     fun middleEngine(start: Boolean)
     {
         topAccelaration = if (start) -TOP_ACCELARATION else 0.0
-        accelaration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
+        acceleration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
         if (start) theTimerForEngineMiddle.start() else theTimerForEngineMiddle.stop()
     }
 
@@ -40,7 +40,7 @@ class Myspaceship(imagename: String?) : MovingObject(imagename), ActionListener
     {
         rightAccelaration = if (start) LEFT_ACCELARATION else 0.0
         rightTopAccelaration = if (start) -RIGHT_TOP_ACCELARATION else 0.0
-        accelaration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
+        acceleration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
         if (start) theTimerForEngineLeft.start() else theTimerForEngineLeft.stop()
     }
 
@@ -48,7 +48,7 @@ class Myspaceship(imagename: String?) : MovingObject(imagename), ActionListener
     {
         leftAccelaration = if (start) -RIGHT_ACCELARATION else 0.0
         leftTopAccelaration = if (start) -LEFT_TOP_ACCELARATION else 0.0
-        accelaration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
+        acceleration = Vector(rightAccelaration + leftAccelaration, topAccelaration + leftTopAccelaration + rightTopAccelaration)
         if (start) theTimerForEngineRight.start() else theTimerForEngineRight.stop()
     }
 
@@ -74,7 +74,7 @@ class Myspaceship(imagename: String?) : MovingObject(imagename), ActionListener
             val aAction = AlphaToAction(aFire)
             aAction.alphaTo(0f, 0.1f)
             aFire.addAction(aAction)
-            theScene.addSprite(aFire)
+            theScene!!.addSprite(aFire)
         }
     }
 
@@ -115,12 +115,12 @@ class Myspaceship(imagename: String?) : MovingObject(imagename), ActionListener
 
     override fun didUpdateState()
     {
-        if (this.centreX < width / 2.0 || this.centreX > theScene.width - width / 2.0)
+        if (this.centreX < width / 2.0 || this.centreX > theScene!!.width - width / 2.0)
         {
             restoreX()
             this.velocityX = 0.0
         }
-        if (this.centreY > theScene.height - height / 2.0)
+        if (this.centreY > theScene!!.height - height / 2.0)
         {
             restoreY()
             this.velocityX = 0.0

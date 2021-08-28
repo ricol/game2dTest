@@ -37,7 +37,7 @@ open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
     @Synchronized
     fun adjustGravity()
     {
-        var GRAVITY_TOTAL = Vector(0, 0)
+        var GRAVITY_TOTAL = Vector(0.0, 0.0)
         for (aObject in otherObjects)
         {
             if (aObject == null)

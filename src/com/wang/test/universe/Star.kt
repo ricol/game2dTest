@@ -18,7 +18,7 @@ import javax.swing.Timer
 class Star : Entity(), ActionListener
 {
     var theTimer = Timer(100, this)
-    override fun onAddToLayer(theLayer: Layer)
+    override fun onAddToLayer(theLayer: Layer?)
     {
         super.onAddToLayer(theLayer) //To change body of generated methods, choose Tools | Templates.
 
@@ -50,7 +50,7 @@ class Star : Entity(), ActionListener
             aFire.addAction(aAction)
             if (theScene != null)
             {
-                theScene.addSprite(aFire)
+                theScene!!.addSprite(aFire)
             }
         }
     }

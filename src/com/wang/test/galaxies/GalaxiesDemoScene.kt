@@ -38,7 +38,7 @@ class GalaxiesDemoScene : NormalScene()
         {
             for (s in this.allSprites)
             {
-                s.setLifeTime(0.0)
+                s!!.setLifeTime(0.0)
             }
         }
     }

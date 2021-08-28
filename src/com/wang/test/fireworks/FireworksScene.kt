@@ -50,20 +50,20 @@ class FireworksScene : Scene()
             if (Math.abs(theRandom.nextInt() % 10) > 5)
             {
                 aObject = BigFirework()
-                aObject.setX(x.toDouble())
-                aObject.setY(y.toDouble())
-                aObject.setVelocityX(velocityX)
-                aObject.setVelocityY(velocityY)
+                aObject.x = x.toDouble()
+                aObject.y = y.toDouble()
+                aObject.velocityX = velocityX
+                aObject.velocityY = velocityY
                 aObject.setLifeTime(100.0)
                 aObject.blastTime = Math.abs(theRandom.nextInt()) % 100 / 80.0 + 0.5
                 aObject.subFireworks = 20
             } else
             {
                 aObject = SmallFirework()
-                aObject.setX(x.toDouble())
-                aObject.setY(y.toDouble())
-                aObject.setVelocityX(velocityX)
-                aObject.setVelocityY(velocityY)
+                aObject.x = x.toDouble()
+                aObject.y = y.toDouble()
+                aObject.velocityX = velocityX
+                aObject.velocityY = velocityY
                 aObject.setLifeTime(Math.abs(theRandom.nextInt()) % 5 + 1.toDouble())
                 aObject.setImage("resource/starSmall.png")
             }
