@@ -17,8 +17,9 @@ abstract class Firework : Sprite
     var bDidBlast = false
     var blastTime = Math.abs(theRandom.nextInt()) % 10.toDouble()
 
-    constructor(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : super(x, y, width, height, mass, velocityX, velocityY)
+    constructor(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : super(x, y, width, height, velocityX, velocityY)
     {
+        this.mass = mass
     }
 
     constructor(imagename: String?) : super(imagename)

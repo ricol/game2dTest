@@ -15,7 +15,7 @@ import java.util.*
 /**
  * @author ricolwang
  */
-open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 {
     var otherObjects: MutableSet<Entity> = HashSet()
     override fun onCustomDraw(theEngineGraphics: IEngineGraphics)

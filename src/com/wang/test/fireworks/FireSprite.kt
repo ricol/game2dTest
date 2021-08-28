@@ -10,4 +10,10 @@ import com.wang.Game2dEngine.sprite.Sprite
 /**
  * @author Philology
  */
-class FireSprite(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : Sprite(x, y, width, height, mass, velocityX, velocityY)
+class FireSprite(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : Sprite(x, y, width, height, velocityX, velocityY)
+{
+    init
+    {
+        this.mass = mass
+    }
+}

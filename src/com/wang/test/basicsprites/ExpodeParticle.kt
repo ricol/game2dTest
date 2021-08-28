@@ -11,7 +11,7 @@ import com.wang.Game2dEngine.sprite.Sprite
 /**
  * @author ricolwang
  */
-class ExpodeParticle @JvmOverloads constructor(x: Double = 0.0, y: Double = 0.0, width: Double = 7.0, height: Double = 7.0, mass: Double = 0.0, velocityX: Double = 0.0, velocityY: Double = 0.0) : Sprite(x, y, width, height, mass, velocityX, velocityY)
+class ExpodeParticle @JvmOverloads constructor(x: Double = 0.0, y: Double = 0.0, width: Double = 7.0, height: Double = 7.0, mass: Double = 0.0, velocityX: Double = 0.0, velocityY: Double = 0.0) : Sprite(x, y, width, height, velocityX, velocityY)
 {
     override fun onCustomDraw(theEngineGraphics: IEngineGraphics)
     {
@@ -22,5 +22,6 @@ class ExpodeParticle @JvmOverloads constructor(x: Double = 0.0, y: Double = 0.0,
     init
     {
         bCustomDrawing = true
+        this.mass = mass
     }
 }

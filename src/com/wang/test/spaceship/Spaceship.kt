@@ -21,11 +21,12 @@ open class Spaceship : Sprite
     var currentLife = totalLife
         private set
 
-    constructor(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : super(x, y, width, height, mass, velocityX, velocityY)
+    constructor(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : super(x, y, width, height, velocityX, velocityY)
     {
+        this.mass = mass
     }
 
-    constructor(imagename: String?) : super(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    constructor(imagename: String?) : super(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
     {
         val aImage: BufferedImage
         try

@@ -14,7 +14,7 @@ import java.awt.Color
 /**
  * @author ricolwang
  */
-open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+open class Entity : Sprite(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 {
     var allOtherObjects: MutableSet<Entity?>? = null
         get()

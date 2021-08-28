@@ -11,7 +11,7 @@ import com.wang.Game2dEngine.sprite.Sprite
 /**
  * @author ricolwang
  */
-class FountainSprite(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : Sprite(x, y, width, height, mass, velocityX, velocityY)
+class FountainSprite(x: Double, y: Double, width: Double, height: Double, mass: Double, velocityX: Double, velocityY: Double) : Sprite(x, y, width, height, velocityX, velocityY)
 {
     override fun onCustomDraw(theGraphics2D: IEngineGraphics)
     {
@@ -23,5 +23,6 @@ class FountainSprite(x: Double, y: Double, width: Double, height: Double, mass: 
     init
     {
         bCustomDrawing = true
+        this.mass = mass
     }
 }
