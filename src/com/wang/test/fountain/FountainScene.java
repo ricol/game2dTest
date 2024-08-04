@@ -7,13 +7,11 @@ package com.wang.test.fountain;
 
 import com.wang.Game2dEngine.physics.gravity.Gravity;
 import com.wang.Game2dEngine.scene.Scene;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
+import javax.swing.*;
 
 /**
  * @author ricolwang
